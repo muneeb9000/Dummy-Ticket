@@ -1,10 +1,9 @@
 <div>
-   
-    
-      <header class="my-container bg-white mt-8">
+      <header class="my-container mt-8">
         <div class="flex items-center justify-between">
-        
-          <img src="{{ asset('assets/Logo.png') }}" alt="Logo image" />
+          <a href="{{url('/')}}">
+            <img src="{{ asset('assets/Logo.png') }}" alt="Logo image" />
+          </a>
         
           <div class="sm:hidden">
             <button id="menu-toggle" class="text-primary text-2xl">
@@ -40,7 +39,7 @@
             <i class="fa fa-magnifying-glass text-lg text-primary"></i>
             <button
               class="flex items-center justify-center gap-2 px-4 py-2 rounded-[5px] bg-[#F4BD0F] text-primary font-[Quicksand] font-bold text-[16px]"
-              style="boxShadow: -5px 5px 0px 0px #00000099" 
+              style='box-shadow: -5px 5px 0px 0px #00000099' 
             >
               +1 (302) 219-0076
             </button>

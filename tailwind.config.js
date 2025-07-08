@@ -14,13 +14,6 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
-            colors: {
-                primary: '#1960A9',
-                secondary: '#06202B',
-            },
-            spacing: {
-                'my-container': '80%',
-            },
         },
     },
 

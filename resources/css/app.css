@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer utilities{
+    .my-container {
+        @apply w-[80%]  mx-auto;
+    }
+}
+
+@layer utilities{
+    .text-primary {
+        @apply text-[#1960A9];
+    }
+
+    .text-secondary {
+        @apply text-[#06202B];
+    }
+
+    .bg-primary {
+        @apply bg-[#1960A9];
+    }
+}

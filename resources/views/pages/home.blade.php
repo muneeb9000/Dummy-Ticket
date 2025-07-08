@@ -23,7 +23,7 @@
                     <div class="flex gap-9">
                         <button
                             class="flex items-center justify-center gap-2 px-7 py-3 rounded-[5px] bg-[#F4BD0F] text-primary font-bold text-[16px]"
-                            style="box-shadow: -5px 5px 0px 0px #00000099"
+                            style='box-shadow: -5px 5px 0px 0px #00000099'
                         >
                             Flight Itinerary 
                         </button>

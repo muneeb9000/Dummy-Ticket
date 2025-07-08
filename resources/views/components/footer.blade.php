@@ -114,7 +114,7 @@
               <ul class="space-y-2">
                 <li>
                   <a
-                    href="./flight_itinerary"
+                    href="{{ route('flight') }}"
                     class="text-secondary font-semibold text-[15px]"
                   >
                     Flight Itinerary

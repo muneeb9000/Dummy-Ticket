@@ -359,7 +359,7 @@
                                         <textarea rows="3" type="text"
                                             placeholder="Write any extra details or instructions like if you have any preferred airline"
                                             class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
-                                            name="flight-1" />
+                                            name="flight-1"></textarea>
                                     </div>
                                 </div>
                                 <div class="mt-4">

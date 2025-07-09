@@ -2,63 +2,78 @@
     <div>
         <div class="my-container">
             <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+                <!-- Left Section: Text & Steps -->
                 <div class="md:col-span-3">
-                    <h1 class="text-[32px] md:text-[46px] font-[700] my-4">
+                    <h1 class="text-[28px] sm:text-[32px] md:text-[46px] font-bold my-4">
                         Flight Reservation
                     </h1>
-                    <p class="text-[#121212] text-[16px] font-[500] leading-relaxed">
+                    <p class="text-[#121212] text-[15px] sm:text-[15px] font-semibold">
                         Need a flight itinerary for your visa application? You're in the
                         right place! Fill out the form below to place your order. Standard
-                        delivery is 12–24 hours (including weekends), with an urgent
+                        delivery is 12–24 hours (including weekends),with an urgent
                         option available.
                     </p>
 
+                    <!-- Steps with icons and arrows -->
                     <div class="flex flex-col items-center">
-                        <div class="flex items-center justify-center gap-16 mt-6">
-                            <div class="flex flex-col items-center">
+                        <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10 md:gap-16 mt-6">
+                            <!-- Left Image -->
+                            <div class="flex flex-col items-center w-20 sm:w-24">
                                 <img src="{{ asset('assets/Frame1.png') }}" alt="Fill Form"
-                                    class="w-24 h-24 object-contain" />
+                                    class="w-full h-20 sm:h-24 object-contain" />
                             </div>
 
-                            <img src="{{ asset('assets/Arrow 3.png')}}" alt="Arrow" class="w-8 h-4 object-contain" />
+                            <img src="{{ asset('assets/Arrow 3.png')}}" alt="Arrow" />
 
-                            <div class="flex flex-col items-center">
-                                <img src="{{ asset('assets/Frame1.png')}}" alt="Pay Invoice"
-                                    class="w-24 h-24 object-contain" />
+                            <!-- Center Image -->
+                            <div class="flex flex-col items-center w-20 sm:w-24">
+                                <img src="{{ asset('assets/Pay-Your-Invoice.png')}}" alt="Pay Invoice"
+                                    class="w-full h-20 sm:h-24 object-contain" />
                             </div>
 
-                            <img src="{{ asset('assets/Arrow 3.png')}}" alt="Arrow" class="w-8 h-4 object-contain" />
+                            <img src="{{ asset('assets/Arrow 3.png')}}" alt="Arrow" />
 
-                            <div class="flex flex-col items-center">
-                                <img src="{{ asset('assets/Frame1.png')}}" alt="Receive Docs"
-                                    class="w-24 h-24 object-contain" />
+                            <!-- Right Image -->
+                            <div class="flex flex-col items-center w-20 sm:w-24">
+                                <img src="{{ asset('assets/Receive-Guides.png')}}" alt="Receive Docs"
+                                    class="w-full h-20 sm:h-24 object-contain" />
                             </div>
                         </div>
 
-                        <div class="w-full mt-6">
-                            <div class="h-[12px] bg-[#F4BD0F] rounded-xl relative overflow-hidden">
-                                <div class="bg-[#1960A9] h-full w-[30%] rounded-xl"></div>
+                        <!-- Progress bar & labels -->
+                        <div class="w-full mt-6 px-2 sm:px-0">
+                            <div class="h-3 bg-[#1960A9] rounded-xl relative overflow-hidden">
+                                <div class="bg-[#F4BD0F] h-full w-[35%] rounded-xl"></div>
                             </div>
-                            <div class="flex justify-between mt-2 text-sm font-semibold text-primary">
-                                <span>Fill the Form</span>
-                                <span>Pay Invoice</span>
-                                <span>Receive Docs</span>
+                            <div class="flex justify-between mt-2 text-primary">
+                                <!-- Left Text (aligned under left image) -->
+                                <span class='text-[18px] font-[600]   text-center'>Fill the Form</span>
+
+                                <!-- Center Text (aligned under center image) -->
+                                <span class='text-[18px] font-[600]   text-center'>Pay Invoice</span>
+
+                                <!-- Right Text (aligned under right image) -->
+                                <span class='text-[18px] font-[600]   text-center'>Receive Docs On
+                                    Emails</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="md:col-span-2 flex justify-end items-center">
-                    <img src="{{ asset('assets/cuate.png')}}" alt="Illustration" class="max-w-full object-contain" />
+                <!-- Right Section: Illustration -->
+                <div class="md:col-span-2 flex justify-center md:justify-end items-center">
+                    <img src="{{ asset('assets/cuate.png')}}" alt="Illustration"
+                        class="max-w-[300px] w-full object-contain" />
                 </div>
             </div>
         </div>
+
 
         <div class="bg-[#D3F5FFBF] w-full min-h-screen pt-4 mt-12 pb-12">
             <div class="my-container">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                     <div class="lg:col-span-8">
-                        <div class="bg-white shadow-md">
+                        <div class="bg-white shadow-md border-[1px] border-[#1960A9]">
                             <form>
                                 <div class="bg-primary h-[60px] w-full">
                                     <div class="flex items-center justify-center w-full max-w-4xl mx-auto md:p-3 gap-4">
@@ -75,16 +90,14 @@
                                             Choose Your Title *
                                         </label>
                                         <select
-                                            class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                            class="w-full border border-gray-300 px-3 py-2 placeholder:text-sm placeholder:text-gray-300"
                                             name="title">
-                                            <option value="">Title</option>
+                                            <option value="">Select Please</option>
                                             <option value="Mr">Mr.</option>
                                             <option value="Ms">Ms.</option>
                                             <option value="Mrs">Mrs.</option>
                                             <option value="Master">Master.</option>
                                         </select>
-                                        <span x-show="errors.title" x-text="errors.title"
-                                            class="text-red-500 text-xs mt-1 block"></span>
                                     </div>
 
                                     <div class="relative">
@@ -101,12 +114,9 @@
                                             </div>
                                         </label>
                                         <input type="text" placeholder="First Name"
-                                            class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                            class="form-input w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                             name="first_name" />
-                                        <span x-show="errors.first_name" x-text="errors.first_name"
-                                            class="text-red-500 text-xs mt-1 block"></span>
                                     </div>
-
                                     <div class="relative">
                                         <label
                                             class="block mb-1 font-quicksand font-medium w-fit text-secondary flex items-center gap-1">
@@ -121,7 +131,7 @@
                                             </div>
                                         </label>
                                         <input type="text" placeholder="Last Name"
-                                            class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                            class="form-input w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                             name="last_name" />
                                         <span x-show="errors.last_name" x-text="errors.last_name"
                                             class="text-red-500 text-xs mt-1 block"></span>
@@ -132,7 +142,7 @@
                                             Your Email Address *
                                         </label>
                                         <input type="email" placeholder="Ex: jackson@gmail.com"
-                                            class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                            class="form-input w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                             name="email" />
                                         <span x-show="errors.email" x-text="errors.email"
                                             class="text-red-500 text-xs mt-1 block"></span>
@@ -152,7 +162,7 @@
                                             </div>
                                         </label>
                                         <input type="number" placeholder="1 646 555 2671"
-                                            class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                            class="form-input w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                             name="phone" />
                                         <span x-show="errors.phone" x-text="errors.phone"
                                             class="text-red-500 text-xs mt-1 block"></span>
@@ -172,7 +182,7 @@
                                             </div>
                                         </label>
                                         <input type="number" placeholder="1 646 555 2671"
-                                            class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                            class="form-input w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                             name="phone" />
 
                                         <span x-show="errors.num_of_travelers" x-text="errors.num_of_travelers"
@@ -185,7 +195,7 @@
                                                 Did you get visa interview date? *
                                             </label>
                                             <select
-                                                class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                                class="form-input w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                                 name="title">
                                                 <option value="yes">Please Select</option>
                                                 <option value="yes">Yes.</option>
@@ -200,7 +210,7 @@
                                                 Select document delivery date?*
                                             </label>
                                             <select
-                                                class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                                class="form-input w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                                 name="title">
                                                 <option value="">Please Select</option>
                                                 <option value="Master">Master.</option>
@@ -240,7 +250,7 @@
                                             </div>
                                         </label>
                                         <select name="total_flight_reservation_travelers"
-                                            class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                                            class="w-full border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
                                             <option value="1">1 Traveler $20 USD</option>
                                             <option value="2">2 Travelers $28 USD (30% OFF)</option>
                                             <option value="3">3 Travelers $42 USD (30% OFF)</option>
@@ -271,7 +281,7 @@
                                             </div>
                                         </label>
                                         <select name="total_flights" x-model="total_flights"
-                                            class="w-full border border-gray-300 rounded-md px-3 py-2  text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                                            class="w-full border border-gray-300 px-3 py-2  text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
                                             <option value="1">1 Flight $20 USD</option>
                                             <option value="2">2 Flights $28 USD (30% OFF)</option>
                                             <option value="3">3 Flights $42 USD (30% OFF)</option>
@@ -286,7 +296,7 @@
                                         </label>
                                         <input type="text"
                                             placeholder="Example: Flight 1 Departure From New York (10 May 2025) to Paris, Returning (20 May 2025) From Paris to New York."
-                                            class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                            class="form-input w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                             name="flight-1" />
                                     </div>
                                     <div>
@@ -295,7 +305,7 @@
                                         </label>
                                         <input type="text"
                                             placeholder="Example: Flight 2 Departure From New York (10 May 2025) to Paris, Returning (20 May 2025) From Paris to New York."
-                                            class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                            class="form-input w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                             name="flight-2" />
                                     </div>
                                     <div>
@@ -304,7 +314,7 @@
                                         </label>
                                         <input type="text"
                                             placeholder="Example: Flight 3 Departure From New York (10 May 2025) to Paris, Returning (20 May 2025) From Paris to New York."
-                                            class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                            class="form-input w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                             name="flight-3" />
                                     </div>
                                     <div>
@@ -313,7 +323,7 @@
                                         </label>
                                         <input type="text"
                                             placeholder="Example: Flight 1 Departure From New York (10 May 2025) to Paris, Returning (20 May 2025) From Paris to New York.   "
-                                            class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                            class="form-input w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                             name="flight-4" />
                                     </div>
                                     <div class="mt-4">
@@ -333,7 +343,7 @@
                                         <div class="mt-3">
                                             <input type="text"
                                                 placeholder="Example: I want departure at 10 Oct and need arrival next day but not before."
-                                                class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                                class="form-input w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                                 name="flight-1" />
                                         </div>
                                         <p class="mt-3 text-secondary text-[16px] font-[600]">
@@ -348,7 +358,7 @@
                                         <div class="mt-3">
                                             <input type="text"
                                                 placeholder="Example: Please avoid UK and US stops/layovers because i don't have their transit visas."
-                                                class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                                class="form-input w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                                 name="flight-1" />
                                         </div>
                                     </div>
@@ -358,7 +368,7 @@
                                     <div class="mt-3">
                                         <textarea rows="3" type="text"
                                             placeholder="Write any extra details or instructions like if you have any preferred airline"
-                                            class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                            class="form-input w-full border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                             name="flight-1"></textarea>
                                     </div>
                                 </div>
@@ -376,16 +386,30 @@
                                         <h3 class="text-[16px] font-[600] text-secondary">
                                             Do You Need Hotel Booking for each traveller?
                                         </h3>
-                                        <div class="flex items-center gap-6">
-                                            <label class="flex items-center gap-2">
-                                                <input type="radio" name="hotelBooking" value="yes" />
-                                                Yes
-                                            </label>
-                                            <label class="flex items-center gap-2">
-                                                <input type="radio" name="hotelBooking" value="no" />
-                                                No
-                                            </label>
+                                        <div x-data="{ hotelBooking: '' }" class="space-y-4">
+                                            <!-- Radio Buttons -->
+                                            <div class="flex items-center gap-6">
+                                                <label class="flex items-center gap-2">
+                                                    <input type="radio" name="hotelBooking" value="yes"
+                                                        @change="hotelBooking = 'yes'" />
+                                                    Yes
+                                                </label>
+                                                <label class="flex items-center gap-2">
+                                                    <input type="radio" name="hotelBooking" value="no"
+                                                        @change="hotelBooking = 'no'" />
+                                                    No
+                                                </label>
+                                            </div>
+
+                                            <!-- Input Fields (conditionally shown) -->
+                                            <div x-show="hotelBooking === 'yes'" x-transition class="space-y-2">
+                                                <input type="text" placeholder="Hotel Name"
+                                                    class="border px-3 py-2 w-full" />
+                                                <input type="text" placeholder="Location"
+                                                    class="border px-3 py-2 w-full" />
+                                            </div>
                                         </div>
+
                                     </div>
                                 </div>
                                 <div class="mt-4">
@@ -488,7 +512,7 @@
                                             Hours!
                                         </p>
                                         <select name="total_flight_reservation_travelers"
-                                            class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                                            class="border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
                                             <option value="">Please Select</option>
                                             <option value="1">
                                                 6 Hours ($30 Extra for urgent)

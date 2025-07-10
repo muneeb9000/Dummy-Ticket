@@ -13,6 +13,7 @@
     <div class="my-container px-4 md:px-12 font-quicksand">
 
    
+    
         <div class="bg-white p-6 rounded-[8px] shadow-[0_0_8px_0_#0000001F] my-12">
             <form x-data="form" x-ref="form" x-init="Alpine.effect(() => {
                 console.log('num of travelers for insurance:', insurance_num_of_travellers);

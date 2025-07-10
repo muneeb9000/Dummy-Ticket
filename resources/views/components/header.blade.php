@@ -2,7 +2,7 @@
       <header class="my-container mt-8">
         <div class="flex items-center justify-between">
           <a href="{{ route('website.home') }}">
-            <img src="{{ asset('assets/Logo.png') }}" alt="Logo image" />
+            <img src="{{ asset('assets/main-logo.webp') }}" alt="Logo image" />
           </a>
         
           <div class="sm:hidden">

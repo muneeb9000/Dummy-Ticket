@@ -7,11 +7,19 @@ use Illuminate\View\View;
 
 class AppLayout extends Component
 {
-    /**
-     * Get the view / contents that represents the component.
-     */
+    public $blog; // 1. Add property
+
+    // 2. Accept in constructor
+    public function __construct($blog = null)
+    {
+        $this->blog = $blog;
+    }
+
+    // 3. Pass to view
     public function render(): View
     {
-        return view('layouts.app');
+        return view('layouts.app', [
+            'blog' => $this->blog,
+        ]);
     }
 }

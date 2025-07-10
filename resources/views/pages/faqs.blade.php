@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./output.css" rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />  
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-  </head>
-  <body class="bg-blue-100">
+<x-app-layout>
     <!-- Dummy Visa Ticket  FAQs -->
     <div class="bg-gradient-to-r from-[#F4D36B] to-[#D3F5FF] min-h-[382px]">
       <div class="grid grid-cols-1 md:grid-cols-2 p-4 md:p-10">
@@ -745,5 +726,4 @@
      </div>
     
     </div>
-  </body>
-</html>
+</x-app-layout>

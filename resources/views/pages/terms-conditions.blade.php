@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Terms & Conditions</title>
-    <link href="./output.css" rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="bg-[#f2f2f2] font-[Poppins]">
+<x-app-layout>
 
     <!-- Banner Section -->
     <div class="bg-gradient-to-r from-[#F4D36B] to-[#D3F5FF] min-h-[200px] flex items-center justify-center px-4 md:px-6 py-4">
@@ -131,6 +119,4 @@
         </div>
       </div>
     </div>
-
-  </body>
-</html>
+</x-app-layout>

@@ -80,22 +80,22 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="text-secondary font-semibold text-[15px]">
+                  <a href="{{ route('website.faqs') }}" class="text-secondary font-semibold text-[15px]">
                     FAQs
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="text-secondary font-semibold text-[15px]">
+                  <a href="{{ route('website.contact') }}" class="text-secondary font-semibold text-[15px]">
                     Contact
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="text-secondary font-semibold text-[15px]">
+                  <a href="{{ route('website.refund.policy') }}" class="text-secondary font-semibold text-[15px]">
                     Refund Policy
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="text-secondary font-semibold text-[15px]">
+                  <a href="{{ route('website.correction.policy') }}" class="text-secondary font-semibold text-[15px]">
                     Corrections Policy
                   </a>
                 </li>
@@ -114,7 +114,7 @@
               <ul class="space-y-2">
                 <li>
                   <a
-                    href="{{ route('flight') }}"
+                    href="{{ route('website.flight') }}"
                     class="text-secondary font-semibold text-[15px]"
                   >
                     Flight Itinerary

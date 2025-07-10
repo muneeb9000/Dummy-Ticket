@@ -1,7 +1,7 @@
 <div>
       <header class="my-container mt-8">
         <div class="flex items-center justify-between">
-          <a href="{{url('/')}}">
+          <a href="{{ route('website.home') }}">
             <img src="{{ asset('assets/Logo.png') }}" alt="Logo image" />
           </a>
         
@@ -22,16 +22,16 @@
               <a href="#">Services</a>
             </li>
             <li>
-              <a href="#">FAQs</a>
+              <a href="{{ route('website.faqs') }}">FAQs</a>
             </li>
             <li>
               <a href="#">Blogs</a>
             </li>
             <li>
-              <a href="#">Reviews</a>
+              <a href="{{ route('website.reviews') }}">Reviews</a>
             </li>
             <li>
-              <a href="#">Contact Us</a>
+              <a href="{{ route('website.contact') }}">Contact Us</a>
             </li>
           </ul>
 

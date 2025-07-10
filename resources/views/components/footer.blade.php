@@ -16,7 +16,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             <div>
               <img
-                src="/assets/Logo.png"
+                src="{{ asset('assets/main-logo.webp') }}"
                 alt="logo"
                 class="mb-4 w-32 sm:w-36"
               />

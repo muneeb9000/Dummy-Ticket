@@ -1,4 +1,5 @@
 <x-app-layout>
+  <div class="bg-[#f2f2f2] mt-8"></div>
     <div
       class="bg-gradient-to-r from-[#F4D36B] to-[#D3F5FF] h-[500px] md:h-[290px] "
     >
@@ -28,7 +29,7 @@
           class="justify-self-center md:justify-self-end p-4 md:p-2 rounded-lg text-center w-full max-w-[499px] h-auto"
         >
           <img
-            src="/src/assets/contact vector.png"
+            src="{{ asset('assets/contact-vector.webp') }}"
             alt="Image"
             class="w-full max-w-[350px] h-auto mx-auto"
           />
@@ -173,7 +174,7 @@
   <div class="flex items-center space-x-2 border  border-[#D6D6D6] w-[270px] px-3 bg-amber-50 h-16">
     <input type="checkbox" id="robot" class="w-4 h-4" />
     <label for="robot" class="text-sm ">I'm not a robot</label>
-    <img src="/src//assets/Logo.png"  class="ml-16">
+    <img src="{{ asset('assets/robot.webp') }}"  class="ml-16">
   </div>
 
   <!-- Row 5: Submit Button -->
@@ -195,7 +196,7 @@
 
 <!-- location image -->
  <div class="mt-32">
-  <img src="/src/assets/Frame 246.png"
+  <img src="{{ asset('assets/map.png') }}"
   class="w-full h-auto" alt="">
  </div>
 

@@ -1,4 +1,5 @@
 <x-app-layout>
+  <div class="bg-[#f2f2f2] font-[Poppins] mt-8">
     <!-- Banner Section -->
     <div
       class="bg-gradient-to-r from-[#F4D36B] to-[#D3F5FF] min-h-[200px] flex items-center justify-center px-4 md:px-6 py-4"
@@ -70,29 +71,41 @@
         <div class="flex items-start space-x-2">
           <div class="w-[4px] h-[30px] md:h-[36px] bg-[#F4BD0F] rounded"></div>
           <h2 class="text-2xl font-semibold text-[#1960A9]">
-            Prohibited Use
+            Travel Insurance Policy Corrections
           </h2>
         </div>
-        <ul class="list-disc pl-6 ml-2 w-full space-y-2 break-words text-justify">
-          <li>
-            If you ask for changes or modifications in your provided routes and dates (Flight /Hotel Details) after we sent you your documents to your email. It is because airlines don’t allow us to make changes in existing or generated reservations they only allow us to create a new one, that is why we recommend in case of modification place another order and repeat the same process again. We know this is awkward or weird but that is the only thing we can do for you.
-          </li>
-          <li>
-            If you come back to us due to the cancelled reservation so please first note the FAQs validation time guidelines if we are not against this then a refund would not be possible.
-          </li>
-          <li>
-            If you come in the future and ask for a refund just because you didn’t use our documents so in that case, we won’t refund you.
-          </li>
-          <li>
-            If you want to make amendments to your reservation after the 5 days of delivery of your documents.
-          </li>
-          <li>
-           If your visa is refused because of our provided documents/services and you’re not able to show sufficient proof that your visa denied reason is our docs then a refund is not possible, you have to show the embassy a written letter for the visa refusal cause to us to initiate the refund.
-          </li>
-          <li>
-            In case you receive the documents early and you saw that after the time so we don’t refund.
-          </li>
-        </ul>
+        <p class="list-disc  ml-2 w-full space-y-2 break-words text-justify">
+          Travel Insurance policy changes are acceptable only 10 days before the effective date which is already mentioned in your policy letter/certificate/ID card.
+        </p>
+        <p class="list-disc  ml-2 w-full space-y-2 break-words text-justify">
+          This clause is only applicable if the above statement matches your case, else below instruction is not for you.
+        </p>
+        <p class="list-disc  ml-2 w-full space-y-2 break-words text-justify">
+          If your number of days in insurance is the same plus the ages are the same for that traveler then changes are possible Free of cost.
+        </p>
+        <p class="list-disc  ml-2 w-full space-y-2 break-words text-justify">
+          In another case, if your number of requiring insurance days exceeds the previous order OR if your traveler’s ages are not the same then an additional cost will be incurred, which will be told to you via our travel experts over email, chat and call.
+        </p>
+        <p class="list-disc  ml-2 w-full space-y-2 break-words text-justify">
+          Again changing the traveller’s first name entirely is not allowed and possible but minor spelling mistakes can be made Free of Cost.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- third div -->
+      <div class="space-y-4 mt-6">
+        <div class="flex items-start space-x-2">
+          <div class="w-[4px] h-[30px] md:h-[36px] bg-[#F4BD0F] rounded"></div>
+          <h2 class="text-2xl font-semibold text-[#1960A9]">
+            Travel Guides
+          </h2>
+        </div>
+        <p class="list-disc ml-2 w-full space-y-2 break-words text-justify">
+If you ordered any travel guide from our available inventory on the website and wanna change it afterwards then you have to inform us before the delivery of the documents through chat, email and call, But once the document has been delivered then changing or swapping the travel guide to another one would not be possible.        </p>
+        
+        <p class="list-disc  ml-2 w-full space-y-2 break-words text-justify">
+<span class="font-bold"> Note: </span> We always respect from the depth of our hearts for our old and new loyal customers. As we know, to up and run this website in the long run we need to shift this minor cost to our customers. And we will expect your full support in the same manner.        </p>
       </div>
     </div>
 
@@ -101,7 +114,7 @@
       class="grid grid-cols-1 md:grid-cols-2 w-[90%] md:w-[70%] h-auto md:h-[370px] mb-32 mt-[60px] rounded-2xl mx-auto bg-gradient-to-r from-[#FECE37] to-[#93BEEA]"
     >
       <div class="w-full h-full flex items-center justify-center p-4">
-        <img src="/src/assets/dizzy-messages 1.png" alt="" class="w-full h-auto object-contain" />
+        <img src="{{ asset('assets/dizzy-messages.webp') }}" alt="" class="w-full h-auto object-contain" />
       </div>
 
       <!-- 2nd div -->
@@ -131,4 +144,5 @@
         </div>
       </div>
     </div>
+</div>
 </x-app-layout>

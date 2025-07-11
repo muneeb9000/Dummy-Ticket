@@ -1,6 +1,7 @@
 <x-app-layout>
     <!-- Dummy Visa Ticket  FAQs -->
-    <div class="bg-gradient-to-r from-[#F4D36B] to-[#D3F5FF] min-h-[382px]">
+     <div class="bg-[#f2f2f2]"> 
+    <div class="bg-gradient-to-r from-[#F4D36B] to-[#D3F5FF] min-h-[382px] mt-8">
       <div class="grid grid-cols-1 md:grid-cols-2 p-4 md:p-10">
         <!-- Left Div -->
         <div
@@ -47,7 +48,7 @@
           class="justify-self-end p-4 md:p-6 rounded-lg text-center w-full md:w-[499px] h-auto"
         >
           <img
-            src="/src/assets/FAQ.png"
+            src="{{ asset('assets/FAQ.webp') }}"
             alt="FAQ Image"
             class="w-full h-auto max-w-[400px] mx-auto"
           />
@@ -63,7 +64,7 @@
         <span>
           <img
             class="w-[40px] sm:w-[50px] h-[40px] sm:h-[50px]"
-            src="/src/assets/logo1.png"
+             src="{{ asset('assets/general-question.webp') }}"
             alt="logo"
           />
         </span>
@@ -181,7 +182,7 @@
         <span>
           <img
             class="w-[40px] sm:w-[50px] h-[40px] sm:h-[50px]"
-            src="/src/assets/logo2.png"
+           src="{{ asset('assets/flight-reservation.webp') }}"
             alt="logo"
           />
         </span>
@@ -276,7 +277,7 @@
         <span>
           <img
             class="w-[40px] sm:w-[50px] h-[40px] sm:h-[50px]"
-            src="/src/assets/logo3.png"
+             src="{{ asset('assets/hotel-booking.webp') }}"
             alt="logo"
           />
         </span>
@@ -401,7 +402,7 @@
         <span>
           <img
             class="w-[40px] sm:w-[50px] h-[40px] sm:h-[50px]"
-            src="/src/assets/logo4.png"
+             src="{{ asset('assets/travel-insurance.webp') }}"
             alt="logo"
           />
         </span>
@@ -494,7 +495,7 @@
         <span>
           <img
             class="w-[40px] sm:w-[50px] h-[40px] sm:h-[50px]"
-            src="/src/assets/logo6.png"
+            src="{{ asset('assets/travel-guides.webp') }}"
             alt="logo"
           />
         </span>
@@ -588,7 +589,7 @@
         <span>
           <img
             class="w-[40px] sm:w-[50px] h-[40px] sm:h-[50px]"
-            src="/src/assets/logo6.png"
+             src="{{ asset('assets/interview-questions.webp') }}"
             alt="logo"
           />
         </span>
@@ -726,4 +727,5 @@
      </div>
     
     </div>
+   </div> 
 </x-app-layout>

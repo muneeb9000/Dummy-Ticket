@@ -507,7 +507,7 @@
                                             <label class="block mb-1 font-quicksand text-sm font-medium text-secondary">
                                                 No Of Travelers: *
                                             </label>
-                                            <p class="text-xs text-[#838083] mb-2">
+                                            <p class="text-[14px] text-light mb-2">
                                                 This is the flight reservation cost only
                                             </p>
                                             <select name="no_of_flights" x-model="no_of_flights"
@@ -530,7 +530,7 @@
                                         <h3 class='text-[16px] font-semibold text-secondary mt-3'>
                                             Your Flight Details:
                                         </h3>
-                                        <p class='text-xs text-info'>
+                                        <p class='text-xs text-light'>
                                             City to City (Departure Date - Returning Date)
                                         </p>
                                         <!-- flights-no -->
@@ -664,6 +664,7 @@
                                                 class="text-success text-xs mt-1"></span>
                                         </div>
                                     </div>
+
                                     <div
                                         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-6 mt-6 text-sm">
 
@@ -866,8 +867,7 @@
                                             }" class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 text-sm items-start">
                                         <!-- No. of Travelers Dropdown -->
                                         <div class="col-span-12 md:col-span-6">
-                                            <label
-                                                class="block mb-1 font-quicksand text-[16px] font-medium text-secondary">
+                                            <label class="block mb-1 font-quicksand text-[16px] font-medium text-dark">
                                                 What is the purpose of this insurance?*
                                             </label>
                                             <p class="text-xs text-[#838083] mb-2">
@@ -885,126 +885,23 @@
                                                 class="text-success text-xs mt-1"></span>
                                         </div>
                                     </div>
-                                    <div
-                                        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-6 mt-6 text-sm">
-
-                                        <!-- Title -->
-                                        <div>
-                                            <label class="block mb-1 font-semibold text-secondary">Choose 2nd Title
-                                                *</label>
-                                            <select class="form-input w-full" name="title"
-                                                @change="form.title = $event.target.value;validateField('title')"
-                                                @blur="validateField('title')">
-                                                <option value="">Title</option>
-                                                <option value="Mr">Mr.</option>
-                                                <option value="Ms">Ms.</option>
-                                                <option value="Mrs">Mrs.</option>
-                                                <option value="Master">Master.</option>
-                                            </select>
-                                            <span x-show="errors.title" x-text="errors.title"
-                                                class="text-success text-xs mt-1"></span>
+                                    <!-- text-condition -->
+                                    <div x-show="interview_documents == 'No, Delivery As Earliest'"
+                                        class="bg-blue-100 max-md:text-[12px] text-sm text-gray-700 border border-blue-300 p-4 mt-4 rounded">
+                                        <div class="font-semibold mb-2 flex items-center gap-1">
+                                            <i class="fas fa-info-circle text-blue-500"></i> Note:
                                         </div>
-
-                                        <!-- First Name -->
-                                        <div>
-                                            <label
-                                                class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
-                                                2nd First Name? *
-                                                <div class="relative inline-flex group">
-                                                    <i
-                                                        class="fas fa-question-circle text-gray-400 text-xs cursor-pointer hover:text-gray-600"></i>
-                                                    <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
-                                                </div>
-                                            </label>
-                                            <input type="text" name="first_name" placeholder="First Name"
-                                                class="form-input w-full" @input="form.first_name = $event.target.value"
-                                                @input.debounce.500ms="validateField('first_name')"
-                                                @blur="validateField('first_name')" />
-                                            <span x-show="errors.first_name" x-text="errors.first_name"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
-
-                                        <!-- Last Name -->
-                                        <div>
-                                            <label
-                                                class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
-                                                2nd Last Name? *
-                                                <div class="relative inline-flex group">
-                                                    <i
-                                                        class="fas fa-question-circle text-gray-400 text-xs cursor-pointer"></i>
-                                                    <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
-                                                </div>
-                                            </label>
-                                            <input type="text" name="last_name" placeholder="Last Name"
-                                                class="form-input w-full" @input="form.last_name = $event.target.value"
-                                                @input.debounce.500ms="validateField('last_name')"
-                                                @blur="validateField('last_name')" />
-                                            <span x-show="errors.last_name" x-text="errors.last_name"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
-
-                                        <!-- 3rd title -->
-                                        <div>
-                                            <label class="block mb-1 font-semibold text-secondary">Choose 3rd Title
-                                                *</label>
-                                            <select class="form-input w-full" name="title"
-                                                @change="form.title = $event.target.value;validateField('title')"
-                                                @blur="validateField('title')">
-                                                <option value="">Title</option>
-                                                <option value="Mr">Mr.</option>
-                                                <option value="Ms">Ms.</option>
-                                                <option value="Mrs">Mrs.</option>
-                                                <option value="Master">Master.</option>
-                                            </select>
-                                            <span x-show="errors.title" x-text="errors.title"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
-
-                                        <!-- 3rd-fs-name -->
-                                        <div>
-                                            <label
-                                                class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
-                                                3rd First Name? *
-                                                <div class="relative inline-flex group">
-                                                    <i
-                                                        class="fas fa-question-circle text-gray-400 text-xs cursor-pointer hover:text-gray-600"></i>
-                                                    <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
-                                                </div>
-                                            </label>
-                                            <input type="text" name="3rd_first_name" placeholder="First Name"
-                                                class="form-input w-full" @input="form.first_name = $event.target.value"
-                                                @input.debounce.500ms="validateField('3rd_first_name')"
-                                                @blur="validateField('3rd_first_name')" />
-                                            <span x-show="errors.3rd_first_name" x-text="errors.3rd_first_name"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
-                                        <div>
-                                            <label
-                                                class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
-                                                3rd Last Name? *
-                                                <div class="relative inline-flex group">
-                                                    <i
-                                                        class="fas fa-question-circle text-gray-400 text-xs cursor-pointer"></i>
-                                                    <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
-                                                </div>
-                                            </label>
-                                            <input type="text" name="last_name" placeholder="Last Name"
-                                                class="form-input w-full" @input="form.last_name = $event.target.value"
-                                                @input.debounce.500ms="validateField('last_name')"
-                                                @blur="validateField('last_name')" />
-                                            <span x-show="errors.last_name" x-text="errors.last_name"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
-
+                                        <ul class="list-disc pl-6 space-y-1">
+                                            <li>You will receive your booking document in the next 12-24 hours including
+                                                weekend
+                                                days. If you need urgently then select the urgent delivery option at the
+                                                bottom
+                                                of this form</li>
+                                            <li><strong class="text-tealDeep">Tip:</strong> Good for those who have visa
+                                                appointments in the next 1 or 2 days later.</li>
+                                        </ul>
                                     </div>
+                                    <!-- no-of-travelers -->
                                     <div x-data="{
                                                 no_of_flights: '1',
                                                 form: {
@@ -1014,161 +911,567 @@
                                             }" class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 text-sm items-start">
                                         <!-- No. of Travelers Dropdown -->
                                         <div class="col-span-12 md:col-span-6">
-                                            <label
-                                                class="block mb-1 font-quicksand text-[16px] font-medium text-[#121212]">
-                                                No Of Hotels: *
+                                            <label class="block mb-1 font-quicksand text-[16px] font-medium text-dark">
+                                                No Of Travelers: *
                                             </label>
-                                            <p class="text-xs text-[#838083] mb-2">
-                                                This is the flight reservation cost only
+                                            <p class="text-xs text-light mb-2">
+                                                Select no of travelers for travel insurance
                                             </p>
                                             <select name="no_of_flights" x-model="no_of_flights"
                                                 class="form-input w-full"
                                                 @change="form.no_of_flights = $event.target.value; validateField('no_of_flights')"
                                                 @blur="validateField('no_of_flights')">
 
-                                                <option value="1">1 Traveler $20 USD</option>
-                                                <option value="2">2 Travelers $35 USD (15% OFF)</option>
-                                                <option value="3">3 Travelers $42 USD (30% OFF)</option>
-                                                <option value="4">4 Travelers $48 USD (40% OFF)</option>
-                                                <option value="5">5 Travelers $50 USD (50% OFF)</option>
-                                            </select>
+                                                <option value="1">1 Traveler</option>
+                                                <option value="2">2 Traveler</option>
+                                                <option value="3">3 Traveler</option>
+                                                <option value="4">4 Traveler</option>
 
+                                            </select>
                                             <span x-show="errors.no_of_flights" x-text="errors.no_of_flights"
                                                 class="text-success text-xs mt-1"></span>
                                         </div>
+                                        <!-- travelling from -->
                                     </div>
-                                    <div>
-                                        <p class="mt-3 text-secondary text-[16px] font-[600]">
-                                            Your Hotel Details:*
-                                        </p>
-                                        <p class="text-[14px] text-light">
-                                            City - (Check in Date - Check out Date) Max: 5 hotels are allowed within 1
-                                            trip, more than that please contact us on chat.
-                                        </p>
-                                        <div class="mt-3">
-                                            <textarea rows="3" type="text"
-                                                placeholder="City Paris - (Check in 11 May 2025 and Check out 15 May 2025"
-                                                class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
-                                                name="flight-1"></textarea>
+                                    <div
+                                        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-x-4 gap-y-6 mt-6 text-sm">
+                                        <!-- Travelling From -->
+                                        <div class="col-span-1">
+                                            <label class="block mb-1 font-quicksand text-[16px] font-medium text-dark">
+                                                Where are you traveling From?*
+                                            </label>
+                                            <input type="text" name="travelling_from" x-model="form.travelling_from"
+                                                @blur="validateField('travelling_from')" class="form-input w-full"
+                                                placeholder="Enter departure city" />
+                                            <span x-show="errors.travelling_from" x-text="errors.travelling_from"
+                                                class="text-success text-xs mt-1"></span>
                                         </div>
-                                    </div>
-                                </div>
-                                <!-- Travel Guides -->
-                                <div class="border p-4 rounded-md shadow mt-6">
-                                    <x-forms-headings icon='fas fa-book'>Travel Guides</x-forms-headings>
-                                    <div class="flex flex-col md:flex-row gap-4 mt-4">
-                                        <img src="{{ asset('assets/travel-guide-sample.webp') }}" alt="Travel Guide"
-                                            class="rounded border w-[100px]">
-                                        <div>
-                                            <p>Do you require travel guide to create impressing cover story for visa?
-                                            </p>
-                                            <button type="button"
-                                                class="bg-secondary text-white text-sm px-2 py-1 mt-2 rounded shadow">
-                                                <a href="{{ asset('wp-content/uploads/2019/07/Amsterdam-3-Day-Travel-Guide-Sample.pdf') }}"
-                                                    target="_blank" rel="noopener noreferrer"> Download Sample </a>
-                                            </button>
-                                            <div class="flex gap-6 mt-2">
-                                                <label class="flex items-center gap-1">
-                                                    <input type="radio" name="travel_guide"
-                                                        :checked="showTravelGuides === true"
-                                                        @change="showTravelGuides = true; " value="yes"
-                                                        class="text-primary">
-                                                    Yes </label>
-                                                <label class="flex items-center gap-1">
-                                                    <input type="radio" name="travel_guide"
-                                                        :checked="showTravelGuides === false"
-                                                        @change="showTravelGuides = false; reset_travel_guides_price; "
-                                                        value="no" class="text-primary"> No </label>
-                                            </div>
-                                            <span x-show="errors.travelGuide" x-text="errors.travelGuide"
+
+                                        <!-- Travelling To -->
+                                        <div class="col-span-1">
+                                            <label class="block mb-1 font-quicksand text-[16px] font-medium text-daek">
+                                                Where are you traveling To?*
+                                            </label>
+                                            <input type="text" name="travelling_to" x-model="form.travelling_to"
+                                                @blur="validateField('travelling_to')" class="form-input w-full"
+                                                placeholder="Enter destination city" />
+                                            <span x-show="errors.travelling_to" x-text="errors.travelling_to"
                                                 class="text-success text-xs mt-1"></span>
                                         </div>
                                     </div>
-                                    <template x-if="showTravelGuides">
-                                        <div class="grid grid-cols-12 space-y-4 mt-6 text-sm">
-                                            <div class="col-span-12 md:col-span-6">
-                                                <label
-                                                    class="block mb-1 font-quicksand font-medium text-sm text-tealDeep mb-2">No
-                                                    of cities? *</label>
-                                                <select @change="updatePrices;
-                                        form.num_of_cities = $event.target.value;
-                                        validateField('num_of_cities');
-                                        updateValidation('num_of_cities')
-                                        " @blur="validateField('num_of_cities')" x-model.number="num_of_cities"
-                                                    name="num_of_cities" class="form-input">
-                                                    <option value="">Select</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                </select>
-                                                <span x-show="errors.num_of_cities" x-text="errors.num_of_cities"
-                                                    class="text-success text-xs mt-1"></span>
-                                            </div>
-                                            <div class="col-span-12">
-                                                <div class="grid grid-cols-12 gap-4 space-y-4">
-                                                    <template x-for="(price, index) in cities_prices || 0" :key="index">
-                                                        <div class="col-span-12 md:col-span-6">
-                                                            <label
-                                                                class="block mb-1 font-quicksand font-medium text-sm text-tealDeep mb-1">
-                                                                City <span x-text="index + 1"></span> *
-                                                            </label>
-
-                                                            <select :name="`cities[${index+1}]`"
-                                                                x-model.number="cities_prices[index]" @change="
-                                                $nextTick(() => {
-                                                    const selectedOption = $event.target.options[$event.target.selectedIndex];
-                                                    const name = selectedOption?.dataset?.name || '';
-
-                                                    // Get the sibling hidden input within this component
-                                                    const hiddenInput = $el.parentElement.querySelector('input[type=hidden]');
-                                                    if (hiddenInput) {
-                                                        hiddenInput.value = name;
-                                                        console.log(`✅ Set hidden input city_names[${index+1}] to:`, name);
-                                                    } else {
-                                                        console.warn(`❌ Hidden input for index ${index} not found`);
-                                                    }
-
-                                                    form.cities_prices[index + 1] = $event.target.value;
-                                                    validateField('cities_prices', index + 1);
-                                                })
-                                            " @blur="validateField('cities_prices', index+1)" class="form-input">
-                                                                <!-- Options should include data-name -->
-                                                                <x-num-of-cities />
-                                                            </select>
-
-                                                            <!-- Plain hidden input, no dynamic ref or class needed -->
-                                                            <input type="hidden" :name="`city_names[${index+1}]`" />
-
-                                                            <span x-show="errors.cities_prices[index+1]"
-                                                                x-text="errors.cities_prices[index+1]"
-                                                                class="text-success text-xs mt-1">
-                                                            </span>
-                                                        </div>
-                                                    </template>
-
+                                    <!-- start end and requiring insurence -->
+                                    <div
+                                        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-6 mt-6 text-sm">
+                                        <div>
+                                            <label
+                                                class="block mb-1 font-quicksand font-medium text-dark flex items-center gap-1">
+                                                When Your Trip End:*
+                                                <div class="relative inline-flex group">
+                                                    <i
+                                                        class="fas fa-question-circle text-gray-400 text-xs cursor-pointer hover:text-gray-600"></i>
+                                                    <div
+                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </label>
+                                            <input type="date" name="end_date" placeholder="end_date"
+                                                class="form-input w-full" @input="form.first_name = $event.target.value"
+                                                @input.debounce.500ms="validateField('first_name')"
+                                                @blur="validateField('first_name')" />
+                                            <span x-show="errors.first_name" x-text="errors.first_name"
+                                                class="text-success text-xs mt-1"></span>
                                         </div>
-                                    </template>
-                                </div>
-                                <!-- Urgent Order -->
-                                <div class="border p-4 rounded-md shadow">
-                                    <x-forms-headings icon='fas fa-exclamation-circle'>Urgent Order</x-forms-headings>
-                                    <div class="w-full md:w-[60%]">
-                                        <p class="mt-3">Do You Want Your Reservation URGENT?</p>
-                                        <label
-                                            class="block mb-1 font-quicksand font-medium text-sm text-tealDeep mt-5 mb-2">
-                                            Typically URGENT Email Delivery Time Period is 6-24 Hours </label>
-                                        <select name="urgent_reservation" x-model.number="urgent_reservation"
-                                            class="form-input w-full">
-                                            <option value="" selected>Please Select</option>
-                                            <option value="1">6-8 Hours ($30 Extra For Urgent)</option>
-                                            <option value="2">8-10 Hours ($15 Extra For Urgent)</option>
-                                        </select>
+                                        <div>
+                                            <label
+                                                class="block mb-1 font-quicksand font-medium text-dark flex items-center gap-1">
+                                                When Your Trip Start:*
+                                                <div class="relative inline-flex group">
+                                                    <i
+                                                        class="fas fa-question-circle text-gray-400 text-xs cursor-pointer hover:text-gray-600"></i>
+                                                    <div
+                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
+                                                    </div>
+                                                </div>
+                                            </label>
+                                            <input type="date" name="end_date" placeholder="end_date"
+                                                class="form-input w-full" @input="form.first_name = $event.target.value"
+                                                @input.debounce.500ms="validateField('first_name')"
+                                                @blur="validateField('first_name')" />
+                                            <span x-show="errors.first_name" x-text="errors.first_name"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+                                        <div>
+                                            <label
+                                                class="block mb-1 font-quicksand font-medium text-dark flex items-center gap-1">
+                                                Days of Requiring Insurance*
+                                                <div class="relative inline-flex group">
+                                                    <i
+                                                        class="fas fa-question-circle text-gray-400 text-xs cursor-pointer"></i>
+                                                    <div
+                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
+                                                    </div>
+                                                </div>
+                                            </label>
+                                            <input type="text" name="last_name" placeholder="Days"
+                                                class="form-input w-full" @input="form.last_name = $event.target.value"
+                                                @input.debounce.500ms="validateField('last_name')"
+                                                @blur="validateField('last_name')" />
+                                            <span x-show="errors.last_name" x-text="errors.last_name"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="bg-blue-100 max-md:text-[12px] text-sm text-primary border border-blue-300 p-2 mt-4 rounded">
+                                        <div class="font-semibold mb-2 flex items-center gap-1">
+                                            <i class="fas fa-info-circle text-blue-500"></i>
+                                        </div>
+                                        <ul class="list-disc pl-6">
+                                            <li>Both trip start and end date difference should be at least 6 days"</li>
+                                        </ul>
                                     </div>
                                 </div>
+                                <!-- travel insurence sections according to user choose -->
+
+                                <div class="bg-primary h-[60px] w-full">
+                                    <div class="flex items-center justify-center w-full max-w-4xl mx-auto md:p-3 gap-4">
+                                        <img src="{{ asset('assets/person.png')}}" alt="" />
+                                        <h2 class="text-[24px] text-white font-[500]">
+                                            Travel 1 Insurance Details
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="mx-auto py-4 p-4">
+                                    <div x-data="{
+                                                interview_documents: 'No',
+                                                form: { 
+                                                    interview_documents: 'No', 
+                                                    visa_interview_date: '' 
+                                                },
+                                                errors: {}
+                                            }" class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 text-sm items-start">
+                                        <!-- Select Document Delivery -->
+                                        <div class="col-span-12 md:col-span-6">
+                                            <label
+                                                class="block mb-1 font-quicksand text-sm font-medium text-tealDeep mb-2">
+                                                Traveler 1 First Name? *
+                                            </label>
+                                            <input type="text" name="traveler_1_first_name"
+                                                x-model="form.traveler_1_first_name" class="form-input w-full"
+                                                placeholder="Enter first name"
+                                                @blur="validateField('traveler_1_first_name')" />
+
+                                            <span x-show="errors.traveler_1_first_name"
+                                                x-text="errors.traveler_1_first_name"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+                                        <div class="col-span-12 md:col-span-6">
+                                            <label
+                                                class="block mb-1 font-quicksand font-medium text-sm text-tealDeep mb-2">
+                                                Traveler 1 Last Name? *
+                                            </label>
+                                            <input type="text" name="traveler_1_last_name" class="form-input w-full"
+                                                placeholder="Enter last name" x-model="form.traveler_1_last_name"
+                                                @input.debounce.500ms="validateField('traveler_1_last_name')"
+                                                @blur="validateField('traveler_1_last_name')" />
+
+                                            <span x-show="errors.traveler_1_last_name"
+                                                x-text="errors.traveler_1_last_name"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-x-4 gap-y-6 mt-6 text-sm">
+
+                                        <!-- 1. Are you a US Citizen? -->
+                                        <div class="col-span-12 sm:col-span-6 md:col-span-4">
+                                            <label class="block mb-1 font-quicksand font-medium text-dark">Are you a US
+                                                Citizen? *</label>
+                                            <select name="us_citizen" x-model="form.us_citizen"
+                                                class="form-input w-full" @change="validateField('us_citizen')"
+                                                @blur="validateField('us_citizen')">
+                                                <option value="" disabled selected>Select an option</option>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                            <span x-show="errors.us_citizen" x-text="errors.us_citizen"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+
+                                        <!-- 2. Traveller Age -->
+                                        <div class="col-span-12 sm:col-span-6 md:col-span-4">
+                                            <label class="block mb-1 font-quicksand font-medium text-dark">Traveller Age
+                                                *</label>
+                                            <select name="traveller_age" x-model="form.traveller_age"
+                                                class="form-input w-full" @change="validateField('traveller_age')"
+                                                @blur="validateField('traveller_age')">
+                                                <option value="" disabled selected>Select age range</option>
+                                                <option value="18-21">18 - 21</option>
+                                                <option value="22-27">22 - 27</option>
+                                                <option value="28-35">28 - 35</option>
+                                                <option value="36-45">36 - 45</option>
+                                                <option value="46+">46 and above</option>
+                                            </select>
+                                            <span x-show="errors.traveller_age" x-text="errors.traveller_age"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+
+                                        <!-- 3. Date of Birth -->
+                                        <div class="col-span-12 sm:col-span-6 md:col-span-4">
+                                            <label class="block mb-1 font-quicksand font-medium text-dark">Date of Birth
+                                                *</label>
+                                            <input type="date" name="date_of_birth" class="form-input w-full"
+                                                x-model="form.date_of_birth"
+                                                @input.debounce.500ms="validateField('date_of_birth')"
+                                                @blur="validateField('date_of_birth')" />
+                                            <span x-show="errors.date_of_birth" x-text="errors.date_of_birth"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+
+                                        <!-- 4. Choose Your Title -->
+                                        <div class="col-span-12 sm:col-span-6 md:col-span-4">
+                                            <label class="block mb-1 font-quicksand font-medium text-dark">Choose Your
+                                                Title *</label>
+                                            <select name="title" x-model="form.title" class="form-input w-full"
+                                                @change="validateField('title')" @blur="validateField('title')">
+                                                <option value="" disabled selected>Select your title</option>
+                                                <option value="Mr.">Mr.</option>
+                                                <option value="Mrs.">Mrs.</option>
+                                                <option value="Master.">Master.</option>
+                                            </select>
+                                            <span x-show="errors.title" x-text="errors.title"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+
+                                        <div class="col-span-12 sm:col-span-6 md:col-span-4">
+                                            <label class="block mb-1 font-quicksand font-medium text-dark">
+                                                Country of Citizenship? *
+                                            </label>
+                                            <input type="text" name="citizenship_country" class="form-input w-full"
+                                                x-model="form.citizenship_country" placeholder="Enter country"
+                                                @input.debounce.500ms="validateField('citizenship_country')"
+                                                @blur="validateField('citizenship_country')" />
+
+                                            <span x-show="errors.citizenship_country"
+                                                x-text="errors.citizenship_country"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+
+                                        <!-- Passport Number (Optional) -->
+                                        <div class="col-span-12 sm:col-span-6 md:col-span-4">
+                                            <label class="block mb-1 font-quicksand font-medium text-dark">
+                                                Passport Number
+                                                <span class="text-xs text-gray-500 ml-1">(Optional)</span>
+                                            </label>
+                                            <input type="text" name="passport" class="form-input w-full"
+                                                x-model="form.passport" placeholder="Enter passport number (if any)"
+                                                @input.debounce.500ms="validateField('passport')"
+                                                @blur="validateField('passport')" />
+
+                                            <span x-show="errors.passport" x-text="errors.passport"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+
+
+                                        <!-- Home Country -->
+                                        <div class="col-span-12 sm:col-span-6 md:col-span-4">
+                                            <label class="block mb-1 font-quicksand font-medium text-dark">Home Country?
+                                                *</label>
+                                            <input type="text" name="home_country" class="form-input w-full"
+                                                x-model="form.home_country" placeholder="Enter your home country"
+                                                @input.debounce.500ms="validateField('home_country')"
+                                                @blur="validateField('home_country')" />
+
+                                            <span x-show="errors.home_country" x-text="errors.home_country"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+
+                                        <!-- Home Country Address -->
+                                        <div class="col-span-12 sm:col-span-6 md:col-span-4">
+                                            <label class="block mb-1 font-quicksand font-medium text-dark">Home Country
+                                                Address? *</label>
+                                            <input type="text" name="home_country_address" class="form-input w-full"
+                                                x-model="form.home_country_address"
+                                                placeholder="Enter your home country address"
+                                                @input.debounce.500ms="validateField('home_country_address')"
+                                                @blur="validateField('home_country_address')" />
+
+                                            <span x-show="errors.home_country_address"
+                                                x-text="errors.home_country_address"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+
+                                        <!-- Home Country State -->
+                                        <div class="col-span-12 sm:col-span-6 md:col-span-4">
+                                            <label class="block mb-1 font-quicksand font-medium text-dark">Home Country
+                                                State? *</label>
+                                            <input type="text" name="home_country_state" class="form-input w-full"
+                                                x-model="form.home_country_state" placeholder="Enter your state"
+                                                @input.debounce.500ms="validateField('home_country_state')"
+                                                @blur="validateField('home_country_state')" />
+
+                                            <span x-show="errors.home_country_state" x-text="errors.home_country_state"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+
+
+                                        <!-- Home Country City -->
+                                        <div class="col-span-12 sm:col-span-6 md:col-span-4">
+                                            <label class="block mb-1 font-quicksand font-medium text-dark">Home Country
+                                                City? *</label>
+                                            <input type="text" name="home_country_city" class="form-input w-full"
+                                                x-model="form.home_country_city" placeholder="Enter your city"
+                                                @input.debounce.500ms="validateField('home_country_city')"
+                                                @blur="validateField('home_country_city')" />
+
+                                            <span x-show="errors.home_country_city" x-text="errors.home_country_city"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+
+                                        <!-- Home Country Postal Code -->
+                                        <div class="col-span-12 sm:col-span-6 md:col-span-4">
+                                            <label class="block mb-1 font-quicksand font-medium text-dark">Home Country
+                                                Postal Code? *</label>
+                                            <input type="text" name="home_postal_code" class="form-input w-full"
+                                                x-model="form.home_postal_code" placeholder="Enter postal code"
+                                                @input.debounce.500ms="validateField('home_postal_code')"
+                                                @blur="validateField('home_postal_code')" />
+
+                                            <span x-show="errors.home_postal_code" x-text="errors.home_postal_code"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+
+                                        <!-- Home Country Phone Number -->
+                                        <div class="col-span-12 sm:col-span-6 md:col-span-4">
+                                            <label class="block mb-1 font-quicksand font-medium text-dark">Home Country
+                                                Phone no.? *</label>
+                                            <input type="tel" name="home_country_phone" class="form-input w-full"
+                                                x-model="form.home_country_phone" placeholder="+1 (302) 219-4576"
+                                                @input.debounce.500ms="validateField('home_country_phone')"
+                                                @blur="validateField('home_country_phone')" />
+
+                                            <span x-show="errors.home_country_phone" x-text="errors.home_country_phone"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+                                    </div>
+                                    <div x-data="{
+                                                    form: {                                                      
+                                                        beneficiary_name: '',
+                                                        beneficiary_relationship: ''
+                                                    },   
+                                                    errors: {}
+                                                }"
+                                        class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 text-sm items-start">
+
+                                        <!-- Beneficiary Name -->
+                                        <div class="col-span-12 md:col-span-6">
+                                            <label
+                                                class="block mb-1 font-quicksand text-sm font-medium text-tealDeep mb-2">
+                                                Beneficiary Name? <span class="text-[10px] text-gray-500">(Can’t be
+                                                    yourself)</span> *
+                                            </label>
+                                            <input type="text" name="beneficiary_name" x-model="form.beneficiary_name"
+                                                class="form-input w-full" placeholder="Enter beneficiary name"
+                                                @blur="validateField('beneficiary_name')" />
+
+                                            <span x-show="errors.beneficiary_name" x-text="errors.beneficiary_name"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+
+                                        <!-- Beneficiary Relationship -->
+                                        <div class="col-span-12 md:col-span-6">
+                                            <label
+                                                class="block mb-1 font-quicksand font-medium text-sm text-tealDeep mb-2">
+                                                Beneficiary Relationship? *
+                                            </label>
+                                            <input type="text" name="beneficiary_relationship" class="form-input w-full"
+                                                placeholder="Enter relationship (e.g. spouse, sibling)"
+                                                x-model="form.beneficiary_relationship"
+                                                @input.debounce.500ms="validateField('beneficiary_relationship')"
+                                                @blur="validateField('beneficiary_relationship')" />
+
+                                            <span x-show="errors.beneficiary_relationship"
+                                                x-text="errors.beneficiary_relationship"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="flex items-center justify-center gap-2 mt-4 px-4 py-2 rounded-[5px] bg-[#F4BD0F] text-primary font-[Quicksand] font-bold text-[16px]"
+                                        style='box-shadow: -5px 5px 0px 0px #00000099'>
+                                        +1 (302) 219-0076
+                                    </button>
+
+                                </div>
+
+
+                                <!-- Travel Guides -->
+                                <div class="bg-primary h-[60px] w-full">
+                                    <div class="flex items-center justify-center w-full max-w-4xl mx-auto md:p-3 gap-4">
+                                        <img src="{{ asset('assets/person.png')}}" alt="" />
+                                        <h2 class="text-[24px] text-white font-[500]">
+                                            Travel Guide
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="mx-auto p-4 py-4">
+                                    <p class="mt-6 text-secondary font-semibold text-[16px]">Do You Need Travel Guides
+                                        to create a impressing cover story for visa?</p>
+                                    <div class="flex gap-6 mt-2">
+                                        <label class="flex items-center gap-1">
+                                            <input type="radio" name="hotelBooking" value="yes"
+                                                :checked="showHotelBooking === true" @change="showHotelBooking = true"
+                                                class="text-primary"> Yes </label>
+                                        <label class="flex items-center gap-1">
+                                            <input type="radio" name="hotelBooking" value="no"
+                                                :checked="showHotelBooking === false"
+                                                @change="showHotelBooking = false; reset_hotel_booking_price"
+                                                class="text-primary"> No </label>
+                                    </div>
+
+                                    <div
+                                        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-x-4 gap-y-6 mt-6 text-sm">
+                                        <!-- 1. No Of Cities -->
+                                        <div class="col-span-12 sm:col-span-6 md:col-span-4">
+                                            <label class="block mb-1 font-quicksand font-medium text-dark">No Of Cities
+                                                *</label>
+                                            <select name="no_of_cities" x-model="form.no_of_cities"
+                                                class="form-input w-full" @change="validateField('no_of_cities')"
+                                                @blur="validateField('no_of_cities')">
+                                                <option value="" disabled selected>Select an option</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                            <span x-show="errors.no_of_cities" x-text="errors.no_of_cities"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+                                    </div>
+
+                                    <div x-data="{
+                                                form: {
+                                                    travel_guide_1: '',
+                                                    travel_guide_2: ''
+                                                },   
+                                                errors: {}
+                                            }" class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 text-sm items-start">
+
+                                        <!-- Select Travel Guide 1 -->
+                                        <div class="col-span-12 md:col-span-6">
+                                            <label
+                                                class="block mb-1 font-quicksand text-sm font-medium text-tealDeep mb-2">
+                                                Select Travel Guide 1*
+                                            </label>
+                                            <select name="travel_guide_1" x-model="form.travel_guide_1"
+                                                class="form-input w-full" @blur="validateField('travel_guide_1')">
+                                                <option value="" disabled selected>Select a guide</option>
+                                                <option value="John Doe">John Doe</option>
+                                                <option value="Sarah Khan">Sarah Khan</option>
+                                                <option value="Ali Ahmed">Ali Ahmed</option>
+                                            </select>
+                                            <span x-show="errors.travel_guide_1" x-text="errors.travel_guide_1"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+
+                                        <!-- Select Travel Guide 2 -->
+                                        <div class="col-span-12 md:col-span-6">
+                                            <label
+                                                class="block mb-1 font-quicksand font-medium text-sm text-tealDeep mb-2">
+                                                Select Travel Guide 2*
+                                            </label>
+                                            <input type="text" name="travel_guide_2" class="form-input w-full"
+                                                placeholder="Enter second travel guide name"
+                                                x-model="form.travel_guide_2"
+                                                @input.debounce.500ms="validateField('travel_guide_2')"
+                                                @blur="validateField('travel_guide_2')" />
+
+                                            <span x-show="errors.travel_guide_2" x-text="errors.travel_guide_2"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Urgent Order -->
+                                <div class="bg-primary h-[60px] w-full">
+                                    <div class="flex items-center justify-center w-full max-w-4xl mx-auto md:p-3 gap-4">
+                                        <img src="{{ asset('assets/person.png')}}" alt="" />
+                                        <h2 class="text-[24px] text-white font-[500]">
+                                            Interview Questions
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="mx-auto p-4">
+                                    <p class="mt-6 text-secondary font-semibold text-[16px]">Would you like a schengen
+                                        visa interview guide to help you feel more prepared for your embassy interview?
+                                    </p>
+                                    <div class="flex gap-6 mt-2">
+                                        <label class="flex items-center gap-1">
+                                            <input type="radio" name="hotelBooking" value="yes"
+                                                :checked="showHotelBooking === true" @change="showHotelBooking = true"
+                                                class="text-primary"> Yes </label>
+                                        <label class="flex items-center gap-1">
+                                            <input type="radio" name="hotelBooking" value="no"
+                                                :checked="showHotelBooking === false"
+                                                @change="showHotelBooking = false; reset_hotel_booking_price"
+                                                class="text-primary"> No </label>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 text-sm items-start">
+                                        <!-- Interview Visa Purpose -->
+                                        <div class="col-span-12 md:col-span-6">
+                                            <label
+                                                class="block mb-1 font-quicksand text-[16px] font-medium text-tealDeep mb-2">
+                                                For which visa purposes do you need an interview questionnaire?
+                                            </label>
+                                            <select name="visa_purpose" class="form-input w-full">
+                                                <option value="" disabled selected>Select a purpose</option>
+                                                <option value="Visitor_Visa">Visitor Visa</option>
+                                                <option value="Student_Visa">Student Visa</option>
+                                                <option value="Work_Visa">Work Visa</option>
+                                                <option value="Immigration_Visa">Immigration Visa</option>
+                                            </select>
+                                            <span x-show="errors.visa_purpose" x-text="errors.visa_purpose"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- urgent-reservation -->
+                                <div class="bg-primary h-[60px] w-full">
+                                    <div class="flex items-center justify-center w-full max-w-4xl mx-auto md:p-3 gap-4">
+                                        <img src="{{ asset('assets/person.png')}}" alt="" />
+                                        <h2 class="text-[24px] text-white font-[500]">
+                                            Urgent Reservation
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="mx-auto p-4">
+                                    <!-- Heading -->
+                                    <p class="mt-6 text-secondary font-semibold text-[16px]">
+                                        Do You Want Your Reservation URGENT?
+                                    </p>
+                                    <p class="text-[14px] text-success">
+                                        Typically URGENT Email Delivery Time Period is 6-8 Hours!
+                                    </p>
+
+                                    <!-- Visa Purpose Dropdown -->
+                                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 text-sm items-start">
+                                        <div class="col-span-12 md:col-span-6">
+                                            <label
+                                                class="block mb-1 font-quicksand text-sm font-medium text-tealDeep mb-2">
+                                                For which visa purpose is this urgent reservation? *
+                                            </label>
+                                            <select name="visa_purpose" class="form-input w-full">
+                                                <option value="" disabled selected>Select a purpose</option>
+                                                <option value="Visitor_Visa">Visitor Visa</option>
+                                                <option value="Student_Visa">Student Visa</option>
+                                                <option value="Work_Visa">Work Visa</option>
+                                                <option value="Immigration_Visa">Immigration Visa</option>
+                                            </select>
+                                            <span x-show="errors.visa_purpose" x-text="errors.visa_purpose"
+                                                class="text-success text-xs mt-1"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </div>
 
                         </div>

@@ -1,7 +1,10 @@
 <x-app-layout>
     <!-- Banner Section -->
+     <div class="bg-[#f2f2f2] font-[Poppins]">
+
+     
     <div
-      class="bg-gradient-to-r from-[#F4D36B] to-[#D3F5FF] min-h-[200px] flex items-center justify-center px-4 md:px-6 py-4"
+      class="bg-gradient-to-r from-[#F4D36B] to-[#D3F5FF] min-h-[200px] flex items-center justify-center px-4 md:px-6 py-4 mt-8"
     >
       <div
         class="text-center w-full max-w-[90%] sm:max-w-[500px] md:max-w-[820px] space-y-6 mx-auto"
@@ -84,7 +87,7 @@
       class="grid grid-cols-1 md:grid-cols-2 w-[90%] md:w-[70%] h-auto md:h-[370px] mb-32 mt-[60px] rounded-2xl mx-auto bg-gradient-to-r from-[#FECE37] to-[#93BEEA]"
     >
       <div class="w-full h-full flex items-center justify-center p-4">
-        <img src="/src/assets/dizzy-messages 1.png" alt="" class="w-full h-auto object-contain" />
+        <img src="{{ asset('assets/dizzy-messages.webp') }}" alt="" class="w-full h-auto object-contain" />
       </div>
 
       <!-- 2nd div -->
@@ -114,4 +117,5 @@
         </div>
       </div>
     </div>
+   </div>  
 </x-app-layout>

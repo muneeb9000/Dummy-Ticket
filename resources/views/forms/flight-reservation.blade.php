@@ -1480,7 +1480,7 @@
                 </form>
             </div>
             <!-- Right Side: Order Summary -->
-            <div class="lg:col-span-4 mt-6">
+            <div class="mt-6 w-full max-w-sm lg:col-span-3">
                 <x-forms-order-summary-section />
             </div>
 

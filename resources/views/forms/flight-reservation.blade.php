@@ -23,16 +23,12 @@
                             <img src="{{ asset('assets/Frame1.png') }}" alt="Fill Form"
                                 class="w-24 h-24 object-contain" />
                         </div>
-
                         <img src="{{ asset('assets/Arrow 3.png')}}" alt="Arrow" class="w-8 h-4 object-contain" />
-
                         <div class="flex flex-col items-center">
                             <img src="{{ asset('assets/Frame1.png')}}" alt="Pay Invoice"
                                 class="w-24 h-24 object-contain" />
                         </div>
-
                         <img src="{{ asset('assets/Arrow 3.png')}}" alt="Arrow" class="w-8 h-4 object-contain" />
-
                         <div class="flex flex-col items-center">
                             <img src="{{ asset('assets/Frame1.png')}}" alt="Receive Docs"
                                 class="w-24 h-24 object-contain" />
@@ -65,7 +61,6 @@
                     console.log('num of travelers for insurance:', insurance_num_of_travellers);
                     console.log('form:', form);
                     })" @submit.prevent="submitForm" action="#" method="POST">
-
                     @csrf
                     <div>
                         <div class="bg-primary h-[60px] w-full">
@@ -86,8 +81,10 @@
 
                                         <!-- Title -->
                                         <div>
-                                            <label class="block mb-1 font-semibold text-secondary">Choose Your Title
-                                                *</label>
+                                            <label class="block mb-1 font-semibold text-secondary">Choose Your Title *</label>
+                                            <div class="min-h-[18px] mb-1">
+                                                <span x-show="errors.title" x-text="errors.title" class="text-success text-xs"></span>
+                                            </div>
                                             <select class="form-input w-full" name="title"
                                                 @change="form.title = $event.target.value;validateField('title')"
                                                 @blur="validateField('title')">
@@ -97,8 +94,6 @@
                                                 <option value="Mrs">Mrs.</option>
                                                 <option value="Master">Master.</option>
                                             </select>
-                                            <span x-show="errors.title" x-text="errors.title"
-                                                class="text-success text-xs mt-1"></span>
                                         </div>
 
                                         <!-- First Name -->
@@ -110,16 +105,16 @@
                                                     <i
                                                         class="fas fa-question-circle text-gray-400 text-xs cursor-pointer hover:text-gray-600"></i>
                                                     <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
+                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]"></div>
                                                 </div>
                                             </label>
+                                            <div class="min-h-[18px] mb-1">
+                                                <span x-show="errors.first_name" x-text="errors.first_name" class="text-success text-xs"></span>
+                                            </div>
                                             <input type="text" name="first_name" placeholder="First Name"
                                                 class="form-input w-full" @input="form.first_name = $event.target.value"
                                                 @input.debounce.500ms="validateField('first_name')"
                                                 @blur="validateField('first_name')" />
-                                            <span x-show="errors.first_name" x-text="errors.first_name"
-                                                class="text-success text-xs mt-1"></span>
                                         </div>
 
                                         <!-- Last Name -->
@@ -131,28 +126,29 @@
                                                     <i
                                                         class="fas fa-question-circle text-gray-400 text-xs cursor-pointer"></i>
                                                     <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
+                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]"></div>
                                                 </div>
                                             </label>
+                                            <div class="min-h-[18px] mb-1">
+                                                <span x-show="errors.last_name" x-text="errors.last_name" class="text-success text-xs"></span>
+                                            </div>
                                             <input type="text" name="last_name" placeholder="Last Name"
                                                 class="form-input w-full" @input="form.last_name = $event.target.value"
                                                 @input.debounce.500ms="validateField('last_name')"
                                                 @blur="validateField('last_name')" />
-                                            <span x-show="errors.last_name" x-text="errors.last_name"
-                                                class="text-success text-xs mt-1"></span>
                                         </div>
 
                                         <!-- Email -->
                                         <div>
                                             <label class="block mb-1 font-quicksand font-medium text-tealDeep">Your
                                                 Email Address *</label>
+                                            <div class="min-h-[18px] mb-1">
+                                                <span x-show="errors.email" x-text="errors.email" class="text-success text-xs"></span>
+                                            </div>
                                             <input type="email" name="email" placeholder="Ex: jackson@gmail.com"
                                                 class="form-input w-full" @input="form.email = $event.target.value"
                                                 @input.debounce.500ms="validateField('email')"
                                                 @blur="validateField('email')" />
-                                            <span x-show="errors.email" x-text="errors.email"
-                                                class="text-success text-xs mt-1"></span>
                                         </div>
 
                                         <!-- Phone -->
@@ -164,16 +160,16 @@
                                                     <i
                                                         class="fas fa-question-circle text-gray-400 text-xs cursor-pointer"></i>
                                                     <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
+                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]"></div>
                                                 </div>
                                             </label>
+                                            <div class="min-h-[18px] mb-1">
+                                                <span x-show="errors.phone" x-text="errors.phone" class="text-success text-xs"></span>
+                                            </div>
                                             <input type="number" name="phone" placeholder="1 646 555 2671"
                                                 class="form-input w-full" @input="form.phone = $event.target.value"
                                                 @input.debounce.500ms="validateField('phone')"
                                                 @blur="validateField('phone')" />
-                                            <span x-show="errors.phone" x-text="errors.phone"
-                                                class="text-success text-xs mt-1"></span>
                                         </div>
 
                                         <!-- Travelers -->
@@ -185,16 +181,77 @@
                                                     <i
                                                         class="fas fa-question-circle text-gray-400 text-xs cursor-pointer"></i>
                                                     <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
+                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]"></div>
                                                 </div>
                                             </label>
+                                            <div class="min-h-[18px] mb-1">
+                                                <span x-show="errors.passport_no" x-text="errors.passport_no" class="text-success text-xs"></span>
+                                            </div>
                                             <input type="number" name="passport-no" placeholder="2671"
-                                                class="form-input w-full" @input="form.phone = $event.target.value"
-                                                @input.debounce.500ms="validateField('phone')"
-                                                @blur="validateField('phone')" />
+                                                class="form-input w-full" @input="form.passport_no = $event.target.value"
+                                                @input.debounce.500ms="validateField('passport_no')"
+                                                @blur="validateField('passport_no')" />
                                         </div>
 
+                                        <template x-if="form.interview_documents === 'Yes'">
+                                            <div class="col-span-12 md:col-span-4 md:col-start-9">
+                                                <!-- Label -->
+                                                <label class="block font-quicksand font-medium text-sm text-tealDeep mb-1">
+                                                    Your visa interview date? *
+                                                </label>
+                                        
+                                                <!-- Error Message (between label and input) -->
+                                                <span x-show="errors.visa_interview_date" x-text="errors.visa_interview_date" class="text-success text-xs mb-1 block"></span>
+                                        
+                                                <!-- Input Field -->
+                                                <input name="visa_interview_date" type="date" class="form-input w-full"
+                                                    @input="form.visa_interview_date = $event.target.value"
+                                                    @input.debounce.500ms="validateField('visa_interview_date')"
+                                                    @blur="validateField('visa_interview_date')" />
+                                        
+                                                <!-- Interview Date Note -->
+                                                <div class="bg-blue-100 max-md:text-[12px] text-sm text-gray-700 border border-blue-300 p-4 mt-4 rounded">
+                                                    <div class="font-semibold mb-2 flex items-center gap-1">
+                                                        <i class="fas fa-info-circle text-blue-500"></i> Interview Date Note:
+                                                    </div>
+                                                    <ul class="list-disc pl-6 space-y-1">
+                                                        <li>Please enter the exact date of your scheduled visa interview. This helps us align your reservation with your embassy appointment.</li>
+                                                        <li>If you do not have an interview date, select 'No' above.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </template>
+                                        
+
+                                        <template x-if="form.interview_documents === 'Schedule in Future Date'">
+                                            <div class="col-span-12 md:col-span-4 md:col-start-9">
+                                                <!-- Label -->
+                                                <label class="block font-quicksand font-medium text-sm text-tealDeep mb-1">
+                                                    Select Future Delivery Date *
+                                                </label>
+                                        
+                                                <!-- Error Message (between label and input) -->
+                                                <span x-show="errors.future_delivery_date" x-text="errors.future_delivery_date" class="text-success text-xs mb-1 block"></span>
+                                        
+                                                <!-- Input Field -->
+                                                <input name="future_delivery_date" type="date" class="form-input w-full"
+                                                    @input="form.future_delivery_date = $event.target.value"
+                                                    @input.debounce.500ms="validateField('future_delivery_date')"
+                                                    @blur="validateField('future_delivery_date')" />
+                                        
+                                                <!-- Schedule Delivery Note -->
+                                                <div class="bg-blue-100 max-md:text-[12px] text-sm text-gray-700 border border-blue-300 p-4 mt-4 rounded">
+                                                    <div class="font-semibold mb-2 flex items-center gap-1">
+                                                        <i class="fas fa-info-circle text-blue-500"></i> Schedule Delivery Note:
+                                                    </div>
+                                                    <ul class="list-disc pl-6 space-y-1">
+                                                        <li>This option is for customers who want to receive their booking document on a specific future date.</li>
+                                                        <li>Your booking validity will start from the selected delivery date and will be valid for the next 2 weeks.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </template>
+                                        
                                     </div>
 
                                     <div x-data="{
@@ -341,16 +398,9 @@
                                         </h2>
                                     </div>
                                 </div>
-                                <div class="mx-auto py-4 p-4">
-                                    <!-- Form Inputs -->
-                                    <div x-data="{
-                                                no_of_flights: '1',
-                                                form: {
-                                                    no_of_flights: '1'
-                                                },
-                                                errors: {}
-                                            }" class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 text-sm items-start">
-                                        <!-- No. of Travelers Dropdown -->
+                                <div class="mx-auto py-4 p-4" x-data="flightReservationSection">
+                                    <!-- No of Travelers Dropdown -->
+                                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 text-sm items-start">
                                         <div class="col-span-12 md:col-span-6">
                                             <label class="block mb-1 font-quicksand text-sm font-medium text-secondary">
                                                 No Of Travelers: *
@@ -358,478 +408,370 @@
                                             <p class="text-xs text-[#838083] mb-2">
                                                 This is the flight reservation cost only
                                             </p>
-                                            <select name="no_of_flights" x-model="no_of_flights"
-                                                class="form-input w-full"
-                                                @change="form.no_of_flights = $event.target.value; validateField('no_of_flights')"
-                                                @blur="validateField('no_of_flights')">
-
+                                            <select name="num_of_travelers" x-model="num_of_travelers" class="form-input w-full"
+                                                @change="updateTravelers()">
                                                 <option value="1">1 Traveler $20 USD</option>
                                                 <option value="2">2 Travelers $35 USD (15% OFF)</option>
                                                 <option value="3">3 Travelers $42 USD (30% OFF)</option>
                                                 <option value="4">4 Travelers $48 USD (40% OFF)</option>
                                                 <option value="5">5 Travelers $50 USD (50% OFF)</option>
+                                                <option value="6">6 Travelers</option>
+                                                <option value="7">7 Travelers</option>
+                                                <option value="8">8 Travelers</option>
                                             </select>
-
-                                            <span x-show="errors.no_of_flights" x-text="errors.no_of_flights"
-                                                class="text-success text-xs mt-1"></span>
                                         </div>
                                     </div>
-
-                                    <div
-                                        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-6 mt-6 text-sm">
-
-                                        <!-- Title -->
-                                        <div>
-                                            <label class="block mb-1 font-semibold text-secondary">Choose 2nd Title
-                                                *</label>
-                                            <select class="form-input w-full" name="title"
-                                                @change="form.title = $event.target.value;validateField('title')"
-                                                @blur="validateField('title')">
-                                                <option value="">Title</option>
-                                                <option value="Mr">Mr.</option>
-                                                <option value="Ms">Ms.</option>
-                                                <option value="Mrs">Mrs.</option>
-                                                <option value="Master">Master.</option>
-                                            </select>
-                                            <span x-show="errors.title" x-text="errors.title"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
-
-                                        <!-- First Name -->
-                                        <div>
-                                            <label
-                                                class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
-                                                2nd First Name? *
-                                                <div class="relative inline-flex group">
-                                                    <i
-                                                        class="fas fa-question-circle text-gray-400 text-xs cursor-pointer hover:text-gray-600"></i>
-                                                    <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
+                                    <!-- Dynamic Traveler Fields -->
+                                    <template x-for="(traveler, idx) in travelers" :key="idx">
+                                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-4 gap-y-6 mt-6 text-sm">
+                                            <!-- Title -->
+                                            <div>
+                                                <label class="block mb-1 font-semibold text-secondary">Choose Title *</label>
+                                                <div class="min-h-[18px] mb-1">
+                                                    <span x-show="errors.travelers[idx]?.title" x-text="errors.travelers[idx]?.title" class="text-success text-xs"></span>
                                                 </div>
-                                            </label>
-                                            <input type="text" name="first_name" placeholder="First Name"
-                                                class="form-input w-full" @input="form.first_name = $event.target.value"
-                                                @input.debounce.500ms="validateField('first_name')"
-                                                @blur="validateField('first_name')" />
-                                            <span x-show="errors.first_name" x-text="errors.first_name"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
-
-                                        <!-- Last Name -->
-                                        <div>
-                                            <label
-                                                class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
-                                                2nd Last Name? *
-                                                <div class="relative inline-flex group">
-                                                    <i
-                                                        class="fas fa-question-circle text-gray-400 text-xs cursor-pointer"></i>
-                                                    <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
+                                                <select class="form-input w-full" :name="'traveler_title_' + idx" x-model="traveler.title"
+                                                    @blur="validateTraveler(idx, 'title')">
+                                                    <option value="">Title</option>
+                                                    <option value="Mr">Mr.</option>
+                                                    <option value="Ms">Ms.</option>
+                                                    <option value="Mrs">Mrs.</option>
+                                                    <option value="Master">Master.</option>
+                                                </select>
+                                            </div>
+                                            <!-- First Name -->
+                                            <div>
+                                                <label class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
+                                                    First Name? *
+                                                </label>
+                                                <div class="min-h-[18px] mb-1">
+                                                    <span x-show="errors.travelers[idx]?.first_name" x-text="errors.travelers[idx]?.first_name" class="text-success text-xs"></span>
                                                 </div>
-                                            </label>
-                                            <input type="text" name="last_name" placeholder="Last Name"
-                                                class="form-input w-full" @input="form.last_name = $event.target.value"
-                                                @input.debounce.500ms="validateField('last_name')"
-                                                @blur="validateField('last_name')" />
-                                            <span x-show="errors.last_name" x-text="errors.last_name"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
-
-                                        <!-- 3rd title -->
-                                        <div>
-                                            <label class="block mb-1 font-semibold text-secondary">Choose 3rd Title
-                                                *</label>
-                                            <select class="form-input w-full" name="title"
-                                                @change="form.title = $event.target.value;validateField('title')"
-                                                @blur="validateField('title')">
-                                                <option value="">Title</option>
-                                                <option value="Mr">Mr.</option>
-                                                <option value="Ms">Ms.</option>
-                                                <option value="Mrs">Mrs.</option>
-                                                <option value="Master">Master.</option>
-                                            </select>
-                                            <span x-show="errors.title" x-text="errors.title"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
-
-                                        <!-- 3rd-fs-name -->
-                                        <div>
-                                            <label
-                                                class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
-                                                3rd First Name? *
-                                                <div class="relative inline-flex group">
-                                                    <i
-                                                        class="fas fa-question-circle text-gray-400 text-xs cursor-pointer hover:text-gray-600"></i>
-                                                    <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
+                                                <input type="text" :name="'traveler_first_name_' + idx" placeholder="First Name"
+                                                    class="form-input w-full" x-model="traveler.first_name"
+                                                    @blur="validateTraveler(idx, 'first_name')" />
+                                            </div>
+                                            <!-- Last Name -->
+                                            <div>
+                                                <label class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
+                                                    Last Name? *
+                                                </label>
+                                                <div class="min-h-[18px] mb-1">
+                                                    <span x-show="errors.travelers[idx]?.last_name" x-text="errors.travelers[idx]?.last_name" class="text-success text-xs"></span>
                                                 </div>
-                                            </label>
-                                            <input type="text" name="3rd_first_name" placeholder="First Name"
-                                                class="form-input w-full" @input="form.first_name = $event.target.value"
-                                                @input.debounce.500ms="validateField('3rd_first_name')"
-                                                @blur="validateField('3rd_first_name')" />
-                                            <span x-show="errors.3rd_first_name" x-text="errors.3rd_first_name"
-                                                class="text-success text-xs mt-1"></span>
+                                                <input type="text" :name="'traveler_last_name_' + idx" placeholder="Last Name"
+                                                    class="form-input w-full" x-model="traveler.last_name"
+                                                    @blur="validateTraveler(idx, 'last_name')" />
+                                            </div>
                                         </div>
-                                        <div>
-                                            <label
-                                                class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
-                                                3rd Last Name? *
-                                                <div class="relative inline-flex group">
-                                                    <i
-                                                        class="fas fa-question-circle text-gray-400 text-xs cursor-pointer"></i>
-                                                    <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
-                                                </div>
-                                            </label>
-                                            <input type="text" name="last_name" placeholder="Last Name"
-                                                class="form-input w-full" @input="form.last_name = $event.target.value"
-                                                @input.debounce.500ms="validateField('last_name')"
-                                                @blur="validateField('last_name')" />
-                                            <span x-show="errors.last_name" x-text="errors.last_name"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
-
-                                    </div>
-                                    <div x-data="{
-                                                no_of_flights: '1',
-                                                form: {
-                                                    no_of_flights: '1'
-                                                },
-                                                errors: {}
-                                            }" class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 text-sm items-start">
-                                        <!-- No. of Travelers Dropdown -->
+                                    </template>
+                                    <!-- No of Flights Dropdown -->
+                                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 text-sm items-start">
                                         <div class="col-span-12 md:col-span-6">
                                             <label class="block mb-1 font-quicksand text-sm font-medium text-secondary">
-                                                No Of Travelers: *
+                                                No Of Flights: *
                                             </label>
-                                            <p class="text-[14px] text-light mb-2">
+                                            <p class="text-xs text-[#838083] mb-2">
                                                 This is the flight reservation cost only
                                             </p>
-                                            <select name="no_of_flights" x-model="no_of_flights"
-                                                class="form-input w-full"
-                                                @change="form.no_of_flights = $event.target.value; validateField('no_of_flights')"
-                                                @blur="validateField('no_of_flights')">
-
-                                                <option value="1">1 Traveler $20 USD</option>
-                                                <option value="2">2 Travelers $35 USD (15% OFF)</option>
-                                                <option value="3">3 Travelers $42 USD (30% OFF)</option>
-                                                <option value="4">4 Travelers $48 USD (40% OFF)</option>
-                                                <option value="5">5 Travelers $50 USD (50% OFF)</option>
+                                            <select name="num_of_flights" x-model="num_of_flights" class="form-input w-full"
+                                                @change="updateFlights()">
+                                                <option value="1">1 Flight</option>
+                                                <option value="2">2 Flights</option>
+                                                <option value="3">3 Flights</option>
+                                                <option value="4">4 Flights</option>
+                                                <option value="5">5 Flights</option>
+                                                <option value="6">6 Flights</option>
+                                                <option value="7">7 Flights</option>
+                                                <option value="8">8 Flights</option>
+                                                <option value="9">9 Flights</option>
                                             </select>
-
-                                            <span x-show="errors.no_of_flights" x-text="errors.no_of_flights"
-                                                class="text-success text-xs mt-1"></span>
                                         </div>
                                     </div>
-                                    <div>
-                                        <h3 class='text-[16px] font-semibold text-secondary mt-3'>
-                                            Your Flight Details:
-                                        </h3>
-                                        <p class='text-xs text-light'>
-                                            City to City (Departure Date - Returning Date)
+                                    <!-- Dynamic Flight Fields -->
+                                    <template x-for="(flight, idx) in flights" :key="idx">
+                                        <div class="mt-4">
+                                            <label class="block mb-1 font-quicksand font-semibold text-[16px] text-secondary">
+                                                Flight <span x-text="idx + 1"></span> *
+                                            </label>
+                                            <span x-show="errors.flights[idx]" x-text="errors.flights[idx]" class="text-success text-xs min-h-[18px] block mb-1"></span>
+                                            <input type="text"
+                                                :placeholder="'Example: Flight ' + (idx+1) + ' Departure From New York (10 May 2025) to Paris, Returning (20 May 2025) From Paris to New York.'"
+                                                class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                                :name="'flight_' + (idx+1)" x-model="flights[idx]"
+                                                @blur="validateFlight(idx)" />
+                                        </div>
+                                    </template>
+                                    <!-- Add More Flights Button -->
+                                    <div class="mt-4">
+                                        <button type="button"
+                                            class="flex items-center justify-center gap-2 px-4 py-2 rounded-[5px] bg-[#F4BD0F] text-primary font-semibold text-[16px]"
+                                            style="box-shadow: -5px 5px 0px 0px #00000099"
+                                            @click="addFlight()" :disabled="flights.length >= 9">
+                                            Add More Flights
+                                        </button>
+                                    </div>
+                                    <!-- Additional Instructions (unchanged) -->
+                                    <div class="mt-4">
+                                        <p class="mt-3 text-secondary text-[16px] font-[600]">
+                                            Mention that, if you have any intended arrival date in departure or returning.
                                         </p>
-                                        <!-- flights-no -->
-                                        <div>
-                                            <div class="mt-4">
-                                                <label
-                                                    class="block mb-1 font-quicksand font-semibold text-[16px] text-secondary">
-                                                    Flight 1 *
-                                                </label>
-                                                <input type="text"
-                                                    placeholder="Example: Flight 1 Departure From New York (10 May 2025) to Paris, Returning (20 May 2025) From Paris to New York."
-                                                    class="form-input w-full border border-gray-300  px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
-                                                    name="flight-1" />
-                                            </div>
-                                            <!-- flight-2 -->
-                                            <div class="mt-4">
-                                                <label
-                                                    class="block mb-1 font-quicksand font-semibold text-[16px] text-secondary">
-                                                    Flight 2 *
-                                                </label>
-                                                <input type="text"
-                                                    placeholder="Example: Flight 2 Departure From New York (10 May 2025) to Paris, Returning (20 May 2025) From Paris to New York."
-                                                    class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
-                                                    name="flight-2" />
-                                            </div>
-                                            <div class='mt-4'>
-                                                <button
-                                                    class="flex items-center justify-center gap-2 px-4 py-2 rounded-[5px] bg-[#F4BD0F] text-primary font-semibold text-[16px]"
-                                                    style='box-shadow: -5px 5px 0px 0px #00000099'>
-                                                    Add More Flights
-                                                </button>
-                                                <div class="mt-4">
-                                                    <p class="mt-3 text-secondary text-[16px] font-[600]">
-                                                        Mention that, if you have any intended arrival date in
-                                                        departure or returning.
-                                                    </p>
-                                                    <p class="text-success text-[14px]">
-                                                        Ex: Your departure is 10 Oct 2024 and you want to arrive
-                                                        on 11 Oct the next day or maybe the same day then
-                                                        mention <br /> the date of arrival below.
-                                                    </p>
-                                                    <div class="mt-3">
-                                                        <input type="text"
-                                                            placeholder="Example: I want departure at 10 Oct and need arrival next day but not before."
-                                                            class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
-                                                            name="flight-1" />
-                                                    </div>
-                                                    <p class="mt-3 text-secondary text-[16px] font-[600]">
-                                                        Mention that, if you want or avoid any specific country
-                                                        layover/stop/transit.
-                                                    </p>
-                                                    <p class="text-success text-[14px]">
-                                                        Ex: If you want to avoid or add any country as a stop
-                                                        before you arrive at your destination then mention below
-                                                        so <br /> we will consider while making your bookings.
-                                                    </p>
-                                                    <div class="mt-3">
-                                                        <input type="text"
-                                                            placeholder="Example: Please avoid UK and US stops/layovers because i don't have their transit visas."
-                                                            class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
-                                                            name="flight-1" />
-                                                    </div>
-                                                    <p class="mt-3 text-secondary text-[16px] font-[600]">
-                                                        Any extra detail or instruction?
-                                                    </p>
-                                                    <div class="mt-3">
-                                                        <textarea rows="3" type="text"
-                                                            placeholder="Write any extra details or instructions like if you have any preferred airline"
-                                                            class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
-                                                            name="flight-1"></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <p class="text-success text-[14px]">
+                                            Ex: Your departure is 10 Oct 2024 and you want to arrive on 11 Oct the next day or maybe the same day then mention <br /> the date of arrival below.
+                                        </p>
+                                        <div class="mt-3">
+                                            <input type="text"
+                                                placeholder="Example: I want departure at 10 Oct and need arrival next day but not before."
+                                                class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                                name="arrival_instruction" />
+                                        </div>
+                                        <p class="mt-3 text-secondary text-[16px] font-[600]">
+                                            Mention that, if you want or avoid any specific country layover/stop/transit.
+                                        </p>
+                                        <p class="text-success text-[14px]">
+                                            Ex: If you want to avoid or add any country as a stop before you arrive at your destination then mention below so <br /> we will consider while making your bookings.
+                                        </p>
+                                        <div class="mt-3">
+                                            <input type="text"
+                                                placeholder="Example: Please avoid UK and US stops/layovers because i don't have their transit visas."
+                                                class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                                name="layover_instruction" />
+                                        </div>
+                                        <p class="mt-3 text-secondary text-[16px] font-[600]">
+                                            Any extra detail or instruction?
+                                        </p>
+                                        <div class="mt-3">
+                                            <textarea rows="3" type="text"
+                                                placeholder="Write any extra details or instructions like if you have any preferred airline"
+                                                class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                                name="extra_instruction"></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Hotel Booking -->
-                                <div class="bg-primary h-[60px] w-full">
-                                    <div class="flex items-center justify-center w-full max-w-4xl mx-auto md:p-3 gap-4">
-                                        <img src="{{ asset('assets/person.png')}}" alt="" />
-                                        <h2 class="text-[24px] text-white font-[500]">
-                                            Hotel Booking
-                                        </h2>
+                                <div x-data="{ showHotelBooking: false }">
+                                    <div class="bg-primary h-[60px] w-full">
+                                        <div class="flex items-center justify-center w-full max-w-4xl mx-auto md:p-3 gap-4">
+                                            <img src="{{ asset('assets/person.png')}}" alt="" />
+                                            <h2 class="text-[24px] text-white font-[500]">
+                                                Hotel Booking
+                                            </h2>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mx-auto py-4 p-4">
-                                    <p class="mt-6 text-secondary font-semibold text-[20px]">Do You Need Hotel Booking
-                                        for each traveller?</p>
-                                    <!-- Toggle -->
-                                    <div class="flex gap-6 mt-2">
-                                        <label class="flex items-center gap-1">
-                                            <input type="radio" name="hotelBooking" value="yes"
-                                                :checked="showHotelBooking === true" @change="showHotelBooking = true"
-                                                class="text-primary"> Yes </label>
-                                        <label class="flex items-center gap-1">
-                                            <input type="radio" name="hotelBooking" value="no"
-                                                :checked="showHotelBooking === false"
-                                                @change="showHotelBooking = false; reset_hotel_booking_price"
-                                                class="text-primary"> No </label>
-                                    </div>
-                                    <!-- Conditional Form -->
-                                    <div x-data="{
-                                                no_of_flights: '1',
-                                                form: {
-                                                    no_of_flights: '1'
-                                                },
-                                                errors: {}
-                                            }" class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 text-sm items-start">
-                                        <!-- No. of Travelers Dropdown -->
-                                        <div class="col-span-12 md:col-span-6">
-                                            <label
-                                                class="block mb-1 font-quicksand text-[16px] font-medium text-secondary">
-                                                No Of Travelers: *
+                                    <div class="mx-auto py-4 p-4">
+                                        <p class="mt-6 text-secondary font-semibold text-[20px]">Do You Need Hotel Booking
+                                            for each traveller?</p>
+                                        <!-- Toggle -->
+                                        <div class="flex gap-6 mt-2">
+                                            <label class="flex items-center gap-1">
+                                                <input type="radio" name="hotelBooking" x-model="showHotelBooking" :value="true" class="text-primary"> Yes
                                             </label>
-                                            <p class="text-xs text-[#838083] mb-2">
-                                                This is the flight reservation cost only
-                                            </p>
-                                            <select name="no_of_flights" x-model="no_of_flights"
-                                                class="form-input w-full"
-                                                @change="form.no_of_flights = $event.target.value; validateField('no_of_flights')"
-                                                @blur="validateField('no_of_flights')">
-
-                                                <option value="1">1 Traveler $20 USD</option>
-                                                <option value="2">2 Travelers $35 USD (15% OFF)</option>
-                                                <option value="3">3 Travelers $42 USD (30% OFF)</option>
-                                                <option value="4">4 Travelers $48 USD (40% OFF)</option>
-                                                <option value="5">5 Travelers $50 USD (50% OFF)</option>
-                                            </select>
-
-                                            <span x-show="errors.no_of_flights" x-text="errors.no_of_flights"
-                                                class="text-success text-xs mt-1"></span>
+                                            <label class="flex items-center gap-1">
+                                                <input type="radio" name="hotelBooking" x-model="showHotelBooking" :value="false" class="text-primary"> No
+                                            </label>
                                         </div>
-                                    </div>
+                                        <!-- Conditional Form -->
+                                        <div x-show="showHotelBooking">
+                                            <div x-data="{
+                                                        no_of_flights: '1',
+                                                        form: {
+                                                            no_of_flights: '1'
+                                                        },
+                                                        errors: {}
+                                                    }" class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 text-sm items-start">
+                                                <!-- No. of Travelers Dropdown -->
+                                                <div class="col-span-12 md:col-span-6">
+                                                    <label
+                                                        class="block mb-1 font-quicksand text-[16px] font-medium text-secondary">
+                                                        No Of Travelers: *
+                                                    </label>
+                                                    <p class="text-xs text-[#838083] mb-2">
+                                                        This is the flight reservation cost only
+                                                    </p>
+                                                    <select name="no_of_flights" x-model="no_of_flights"
+                                                        class="form-input w-full"
+                                                        @change="form.no_of_flights = $event.target.value; validateField('no_of_flights')"
+                                                        @blur="validateField('no_of_flights')">
 
-                                    <div
-                                        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-6 mt-6 text-sm">
+                                                        <option value="1">1 Traveler $20 USD</option>
+                                                        <option value="2">2 Travelers $35 USD (15% OFF)</option>
+                                                        <option value="3">3 Travelers $42 USD (30% OFF)</option>
+                                                        <option value="4">4 Travelers $48 USD (40% OFF)</option>
+                                                        <option value="5">5 Travelers $50 USD (50% OFF)</option>
+                                                    </select>
 
-                                        <!-- Title -->
-                                        <div>
-                                            <label class="block mb-1 font-semibold text-secondary">Choose 2nd Title
-                                                *</label>
-                                            <select class="form-input w-full" name="title"
-                                                @change="form.title = $event.target.value;validateField('title')"
-                                                @blur="validateField('title')">
-                                                <option value="">Title</option>
-                                                <option value="Mr">Mr.</option>
-                                                <option value="Ms">Ms.</option>
-                                                <option value="Mrs">Mrs.</option>
-                                                <option value="Master">Master.</option>
-                                            </select>
-                                            <span x-show="errors.title" x-text="errors.title"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
-
-                                        <!-- First Name -->
-                                        <div>
-                                            <label
-                                                class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
-                                                2nd First Name? *
-                                                <div class="relative inline-flex group">
-                                                    <i
-                                                        class="fas fa-question-circle text-gray-400 text-xs cursor-pointer hover:text-gray-600"></i>
-                                                    <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
+                                                    <span x-show="errors.no_of_flights" x-text="errors.no_of_flights"
+                                                        class="text-success text-xs mt-1"></span>
                                                 </div>
-                                            </label>
-                                            <input type="text" name="first_name" placeholder="First Name"
-                                                class="form-input w-full" @input="form.first_name = $event.target.value"
-                                                @input.debounce.500ms="validateField('first_name')"
-                                                @blur="validateField('first_name')" />
-                                            <span x-show="errors.first_name" x-text="errors.first_name"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
+                                            </div>
 
-                                        <!-- Last Name -->
-                                        <div>
-                                            <label
-                                                class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
-                                                2nd Last Name? *
-                                                <div class="relative inline-flex group">
-                                                    <i
-                                                        class="fas fa-question-circle text-gray-400 text-xs cursor-pointer"></i>
-                                                    <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
+                                            <div
+                                                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-6 mt-6 text-sm">
+
+                                                <!-- Title -->
+                                                <div>
+                                                    <label class="block mb-1 font-semibold text-secondary">Choose 2nd Title
+                                                        *</label>
+                                                    <select class="form-input w-full" name="title"
+                                                        @change="form.title = $event.target.value;validateField('title')"
+                                                        @blur="validateField('title')">
+                                                        <option value="">Title</option>
+                                                        <option value="Mr">Mr.</option>
+                                                        <option value="Ms">Ms.</option>
+                                                        <option value="Mrs">Mrs.</option>
+                                                        <option value="Master">Master.</option>
+                                                    </select>
+                                                    <span x-show="errors.title" x-text="errors.title"
+                                                        class="text-success text-xs mt-1"></span>
                                                 </div>
-                                            </label>
-                                            <input type="text" name="last_name" placeholder="Last Name"
-                                                class="form-input w-full" @input="form.last_name = $event.target.value"
-                                                @input.debounce.500ms="validateField('last_name')"
-                                                @blur="validateField('last_name')" />
-                                            <span x-show="errors.last_name" x-text="errors.last_name"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
 
-                                        <!-- 3rd title -->
-                                        <div>
-                                            <label class="block mb-1 font-semibold text-secondary">Choose 3rd Title
-                                                *</label>
-                                            <select class="form-input w-full" name="title"
-                                                @change="form.title = $event.target.value;validateField('title')"
-                                                @blur="validateField('title')">
-                                                <option value="">Title</option>
-                                                <option value="Mr">Mr.</option>
-                                                <option value="Ms">Ms.</option>
-                                                <option value="Mrs">Mrs.</option>
-                                                <option value="Master">Master.</option>
-                                            </select>
-                                            <span x-show="errors.title" x-text="errors.title"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
-
-                                        <!-- 3rd-fs-name -->
-                                        <div>
-                                            <label
-                                                class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
-                                                3rd First Name? *
-                                                <div class="relative inline-flex group">
-                                                    <i
-                                                        class="fas fa-question-circle text-gray-400 text-xs cursor-pointer hover:text-gray-600"></i>
-                                                    <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
+                                                <!-- First Name -->
+                                                <div>
+                                                    <label
+                                                        class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
+                                                        2nd First Name? *
+                                                        <div class="relative inline-flex group">
+                                                            <i
+                                                                class="fas fa-question-circle text-gray-400 text-xs cursor-pointer hover:text-gray-600"></i>
+                                                            <div
+                                                                class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
+                                                            </div>
+                                                        </div>
+                                                    </label>
+                                                    <input type="text" name="first_name" placeholder="First Name"
+                                                        class="form-input w-full" @input="form.first_name = $event.target.value"
+                                                        @input.debounce.500ms="validateField('first_name')"
+                                                        @blur="validateField('first_name')" />
+                                                    <span x-show="errors.first_name" x-text="errors.first_name"
+                                                        class="text-success text-xs mt-1"></span>
                                                 </div>
-                                            </label>
-                                            <input type="text" name="3rd_first_name" placeholder="First Name"
-                                                class="form-input w-full" @input="form.first_name = $event.target.value"
-                                                @input.debounce.500ms="validateField('3rd_first_name')"
-                                                @blur="validateField('3rd_first_name')" />
-                                            <span x-show="errors.3rd_first_name" x-text="errors.3rd_first_name"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
-                                        <div>
-                                            <label
-                                                class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
-                                                3rd Last Name? *
-                                                <div class="relative inline-flex group">
-                                                    <i
-                                                        class="fas fa-question-circle text-gray-400 text-xs cursor-pointer"></i>
-                                                    <div
-                                                        class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
-                                                    </div>
+
+                                                <!-- Last Name -->
+                                                <div>
+                                                    <label
+                                                        class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
+                                                        2nd Last Name? *
+                                                        <div class="relative inline-flex group">
+                                                            <i
+                                                                class="fas fa-question-circle text-gray-400 text-xs cursor-pointer"></i>
+                                                            <div
+                                                                class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
+                                                            </div>
+                                                        </div>
+                                                    </label>
+                                                    <input type="text" name="last_name" placeholder="Last Name"
+                                                        class="form-input w-full" @input="form.last_name = $event.target.value"
+                                                        @input.debounce.500ms="validateField('last_name')"
+                                                        @blur="validateField('last_name')" />
+                                                    <span x-show="errors.last_name" x-text="errors.last_name"
+                                                        class="text-success text-xs mt-1"></span>
                                                 </div>
-                                            </label>
-                                            <input type="text" name="last_name" placeholder="Last Name"
-                                                class="form-input w-full" @input="form.last_name = $event.target.value"
-                                                @input.debounce.500ms="validateField('last_name')"
-                                                @blur="validateField('last_name')" />
-                                            <span x-show="errors.last_name" x-text="errors.last_name"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
 
-                                    </div>
-                                    <div x-data="{
-                                                no_of_flights: '1',
-                                                form: {
-                                                    no_of_flights: '1'
-                                                },
-                                                errors: {}
-                                            }" class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 text-sm items-start">
-                                        <!-- No. of Travelers Dropdown -->
-                                        <div class="col-span-12 md:col-span-6">
-                                            <label
-                                                class="block mb-1 font-quicksand text-[16px] font-medium text-[#121212]">
-                                                No Of Hotels: *
-                                            </label>
-                                            <p class="text-xs text-[#838083] mb-2">
-                                                This is the flight reservation cost only
-                                            </p>
-                                            <select name="no_of_flights" x-model="no_of_flights"
-                                                class="form-input w-full"
-                                                @change="form.no_of_flights = $event.target.value; validateField('no_of_flights')"
-                                                @blur="validateField('no_of_flights')">
+                                                <!-- 3rd title -->
+                                                <div>
+                                                    <label class="block mb-1 font-semibold text-secondary">Choose 3rd Title
+                                                        *</label>
+                                                    <select class="form-input w-full" name="title"
+                                                        @change="form.title = $event.target.value;validateField('title')"
+                                                        @blur="validateField('title')">
+                                                        <option value="">Title</option>
+                                                        <option value="Mr">Mr.</option>
+                                                        <option value="Ms">Ms.</option>
+                                                        <option value="Mrs">Mrs.</option>
+                                                        <option value="Master">Master.</option>
+                                                    </select>
+                                                    <span x-show="errors.title" x-text="errors.title"
+                                                        class="text-success text-xs mt-1"></span>
+                                                </div>
 
-                                                <option value="1">1 Traveler $20 USD</option>
-                                                <option value="2">2 Travelers $35 USD (15% OFF)</option>
-                                                <option value="3">3 Travelers $42 USD (30% OFF)</option>
-                                                <option value="4">4 Travelers $48 USD (40% OFF)</option>
-                                                <option value="5">5 Travelers $50 USD (50% OFF)</option>
-                                            </select>
+                                                <!-- 3rd-fs-name -->
+                                                <div>
+                                                    <label
+                                                        class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
+                                                        3rd First Name? *
+                                                        <div class="relative inline-flex group">
+                                                            <i
+                                                                class="fas fa-question-circle text-gray-400 text-xs cursor-pointer hover:text-gray-600"></i>
+                                                            <div
+                                                                class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
+                                                            </div>
+                                                        </div>
+                                                    </label>
+                                                    <input type="text" name="3rd_first_name" placeholder="First Name"
+                                                        class="form-input w-full" @input="form.first_name = $event.target.value"
+                                                        @input.debounce.500ms="validateField('3rd_first_name')"
+                                                        @blur="validateField('3rd_first_name')" />
+                                                    <span x-show="errors.3rd_first_name" x-text="errors.3rd_first_name"
+                                                        class="text-success text-xs mt-1"></span>
+                                                </div>
+                                                <div>
+                                                    <label
+                                                        class="block mb-1 font-quicksand font-medium text-tealDeep flex items-center gap-1">
+                                                        3rd Last Name? *
+                                                        <div class="relative inline-flex group">
+                                                            <i
+                                                                class="fas fa-question-circle text-gray-400 text-xs cursor-pointer"></i>
+                                                            <div
+                                                                class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-max max-w-xs px-3 py-2 rounded-lg bg-[#495361] text-white text-sm shadow-xl border border-gray-700 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 ease-out z-50 pointer-events-none before:content-[''] before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[8px] before:border-transparent before:border-t-[#495361]">
+                                                            </div>
+                                                        </div>
+                                                    </label>
+                                                    <input type="text" name="last_name" placeholder="Last Name"
+                                                        class="form-input w-full" @input="form.last_name = $event.target.value"
+                                                        @input.debounce.500ms="validateField('last_name')"
+                                                        @blur="validateField('last_name')" />
+                                                    <span x-show="errors.last_name" x-text="errors.last_name"
+                                                        class="text-success text-xs mt-1"></span>
+                                                </div>
 
-                                            <span x-show="errors.no_of_flights" x-text="errors.no_of_flights"
-                                                class="text-success text-xs mt-1"></span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p class="mt-3 text-secondary text-[16px] font-[600]">
-                                            Your Hotel Details:*
-                                        </p>
-                                        <p class="text-[14px] text-light">
-                                            City - (Check in Date - Check out Date) Max: 5 hotels are allowed within 1
-                                            trip, more than that please contact us on chat.
-                                        </p>
-                                        <div class="mt-3">
-                                            <textarea rows="3" type="text"
-                                                placeholder="City Paris - (Check in 11 May 2025 and Check out 15 May 2025"
-                                                class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
-                                                name="flight-1"></textarea>
+                                            </div>
+                                            <div x-data="{
+                                                        no_of_flights: '1',
+                                                        form: {
+                                                            no_of_flights: '1'
+                                                        },
+                                                        errors: {}
+                                                    }" class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 text-sm items-start">
+                                                <!-- No. of Travelers Dropdown -->
+                                                <div class="col-span-12 md:col-span-6">
+                                                    <label
+                                                        class="block mb-1 font-quicksand text-[16px] font-medium text-[#121212]">
+                                                        No Of Hotels: *
+                                                    </label>
+                                                    <p class="text-xs text-[#838083] mb-2">
+                                                        This is the flight reservation cost only
+                                                    </p>
+                                                    <select name="no_of_flights" x-model="no_of_flights"
+                                                        class="form-input w-full"
+                                                        @change="form.no_of_flights = $event.target.value; validateField('no_of_flights')"
+                                                        @blur="validateField('no_of_flights')">
+
+                                                        <option value="1">1 Traveler $20 USD</option>
+                                                        <option value="2">2 Travelers $35 USD (15% OFF)</option>
+                                                        <option value="3">3 Travelers $42 USD (30% OFF)</option>
+                                                        <option value="4">4 Travelers $48 USD (40% OFF)</option>
+                                                        <option value="5">5 Travelers $50 USD (50% OFF)</option>
+                                                    </select>
+
+                                                    <span x-show="errors.no_of_flights" x-text="errors.no_of_flights"
+                                                        class="text-success text-xs mt-1"></span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="mt-3 text-secondary text-[16px] font-[600]">
+                                                    Your Hotel Details:*
+                                                </p>
+                                                <p class="text-[14px] text-light">
+                                                    City - (Check in Date - Check out Date) Max: 5 hotels are allowed within 1
+                                                    trip, more than that please contact us on chat.
+                                                </p>
+                                                <div class="mt-3">
+                                                    <textarea rows="3" type="text"
+                                                        placeholder="City Paris - (Check in 11 May 2025 and Check out 15 May 2025"
+                                                        class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                                        name="flight-1"></textarea>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1266,7 +1208,7 @@
                                         <div class="col-span-12 md:col-span-6">
                                             <label
                                                 class="block mb-1 font-quicksand text-sm font-medium text-tealDeep mb-2">
-                                                Beneficiary Name? <span class="text-[10px] text-gray-500">(Can’t be
+                                                Beneficiary Name? <span class="text-[10px] text-gray-500">(Can't be
                                                     yourself)</span> *
                                             </label>
                                             <input type="text" name="beneficiary_name" x-model="form.beneficiary_name"
@@ -2133,6 +2075,24 @@
                         return;
                     }
 
+                    // Custom validation for visa_interview_date
+                    if (field === 'visa_interview_date' && this.form.interview_documents === 'Yes') {
+                        if (!this.form.visa_interview_date || this.form.visa_interview_date.toString().trim() === '') {
+                            this.errors.visa_interview_date = 'Visa interview date is required.';
+                            return;
+                        } else {
+                            this.errors.visa_interview_date = '';
+                        }
+                    }
+                    // Custom validation for future_delivery_date
+                    if (field === 'future_delivery_date' && this.form.interview_documents === 'Schedule in Future Date') {
+                        if (!this.form.future_delivery_date || this.form.future_delivery_date.toString().trim() === '') {
+                            this.errors.future_delivery_date = 'Future delivery date is required.';
+                            return;
+                        } else {
+                            this.errors.future_delivery_date = '';
+                        }
+                    }
                 },
 
                 isValidPhoneNumber(phoneStr) {
@@ -2265,7 +2225,7 @@
                             }
                         });
 
-                        return; // bail out, don’t submit
+                        return; // bail out, don't submit
                     }
                     // 4. Submit or bail out
 
@@ -2706,5 +2666,82 @@
         });
         </script>
 
+        <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('flightReservationSection', () => ({
+                num_of_travelers: 1,
+                travelers: [{title: '', first_name: '', last_name: ''}],
+                num_of_flights: 1,
+                flights: [''],
+                errors: {travelers: [{}], flights: ['']},
+                updateTravelers() {
+                    let n = parseInt(this.num_of_travelers) || 1;
+                    if (n > 8) n = 8;
+                    if (n < 1) n = 1;
+                    this.num_of_travelers = n;
+                    while (this.travelers.length < n) {
+                        this.travelers.push({title: '', first_name: '', last_name: ''});
+                        this.errors.travelers.push({title: '', first_name: '', last_name: ''});
+                    }
+                    while (this.travelers.length > n) {
+                        this.travelers.pop();
+                        this.errors.travelers.pop();
+                    }
+                },
+                updateFlights() {
+                    let n = parseInt(this.num_of_flights) || 1;
+                    if (n > 9) n = 9;
+                    if (n < 1) n = 1;
+                    this.num_of_flights = n;
+                    while (this.flights.length < n) {
+                        this.flights.push('');
+                        this.errors.flights.push('');
+                    }
+                    while (this.flights.length > n) {
+                        this.flights.pop();
+                        this.errors.flights.pop();
+                    }
+                },
+                addFlight() {
+                    if (this.flights.length < 9) {
+                        this.flights.push('');
+                        this.errors.flights.push('');
+                        this.num_of_flights = this.flights.length;
+                    }
+                },
+                validateTraveler(idx, field) {
+                    const val = this.travelers[idx][field];
+                    if (!val || val.trim() === '') {
+                        this.errors.travelers[idx][field] = 'This field is required.';
+                    } else {
+                        this.errors.travelers[idx][field] = '';
+                    }
+                },
+                validateFlight(idx) {
+                    if (!this.flights[idx] || this.flights[idx].trim() === '') {
+                        this.errors.flights[idx] = 'Flight details required.';
+                    } else {
+                        this.errors.flights[idx] = '';
+                    }
+                },
+                validateAll() {
+                    // Validate all travelers
+                    this.travelers.forEach((traveler, idx) => {
+                        ['title', 'first_name', 'last_name'].forEach(field => {
+                            this.validateTraveler(idx, field);
+                        });
+                    });
+                    // Validate all flights
+                    this.flights.forEach((_, idx) => {
+                        this.validateFlight(idx);
+                    });
+                    // Return true if no errors
+                    const travelerErrors = this.errors.travelers.some(e => Object.values(e).some(v => v));
+                    const flightErrors = this.errors.flights.some(e => e);
+                    return !(travelerErrors || flightErrors);
+                }
+            }));
+        });
+        </script>
 
 </x-app-layout>

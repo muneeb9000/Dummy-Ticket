@@ -1,15 +1,6 @@
 <div>
     
-    <div>
-      <div class="w-full relative">
-        <img
-          src="/assets/cloud.png"
-          alt="cloud"
-          class=""
-        />
-
-        <div class="w-[87%] h-[1px] bg-primary absolute bottom-0 left-1/2 transform -translate-x-1/2"></div>
-      </div>
+    
 
       <footer class="bg-[#D3F5FF] mt-0 px-4 sm:px-6 py-10">
         <div class="my-container mx-auto">
@@ -18,7 +9,7 @@
               <img
                 src="{{ asset('assets/main-logo.webp') }}"
                 alt="logo"
-                class="mb-4 w-32 sm:w-36"
+                class="mb-4 w-64 h-[82px] "
               />
               <p class="text-[15px] text-secondary font-medium leading-snug">
                 Lorem Ipsum is simply dummy text of the printing and typesetting

@@ -31,4 +31,9 @@
     .bg-primary {
         @apply bg-[#1960A9];
     }
+    .input-bg{
+        @apply bg-[#A1A3AA] bg-opacity-20;
+      
+        
+    }
 }

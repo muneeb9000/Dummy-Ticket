@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 @layer utilities {
-    .my-container {
-        @apply w-[80%]  mx-auto;
-    }
+  .my-container {
+    @apply w-[80%] mx-auto;
+  }
+
+ .input_bg {
+  @apply bg-[#A1A3AA] bg-opacity-20;
+}
 }
 

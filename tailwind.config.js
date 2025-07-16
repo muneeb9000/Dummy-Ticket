@@ -20,7 +20,6 @@ export default {
                 success: "#077A7D",
                 light: "#838083",
                 dark: "#121212",
-                input_bg: "#e8eff6",
             },
         },
     },

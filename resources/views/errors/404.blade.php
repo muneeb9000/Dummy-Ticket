@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-    <link href="./output.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-</head>
-<body class="bg-[#f2f2f2]">
-     <div
+<x-app-layout>
+<div class="bg-[#f2f2f2]">
+
+
+ <div
       class="bg-gradient-to-r from-[#F4D36B] to-[#D3F5FF] h-[500px] md:h-[260px] "
     >
       <div class="grid grid-cols-1 md:grid-cols-2 px-4 py-6 md:py-10 gap-4">
@@ -44,7 +31,7 @@
           <img
             src="/src/assets/404 vector.png"
             alt="Image"
-            class="w-full max-w-[350px] h-auto mx-auto"
+            class="w-full max-w-[350px] h-auto mx-auto" 
           />
         </div>
       </div>
@@ -53,7 +40,7 @@
     <!-- heading -->
      <div class="w-[47%] mx-auto h-auto items-center justify-center text-center mt-16">
       <h1 class="text-3xl font-extrabold text-[#1960A9]">
-        Are you in need of any of the following services?
+        Are you in need of any of the following services? 
       </h1>
       <p class="mt-4 font-semibold text-lg Futura-Bold ">All our flight itineraries are verifiable and can be
          confirmed from airline websites through the unique reservation code we provide on the itinerary document.</p>
@@ -166,5 +153,10 @@
   </div>
 </div>
 
-</body>
-</html>
+</div>
+
+
+
+
+
+</x-app-layout>

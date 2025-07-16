@@ -1,4 +1,9 @@
 <x-app-layout>
+    <style>
+        body{
+            background-color : #d3f5ff;
+        }
+    </style>
 
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -54,7 +59,7 @@
         </div>
     </div>
     <!-- form-layout -->
-    <div class='bg-[#D3F5FFBF]'>
+    <div>
         <div class="my-container py-5 font-quicksand flex gap-10 flex-col md:flex-row">
             <div class="bg-white border-[1px] border-[#1960A9]">
                 <form x-data="form" x-ref="form" x-init="Alpine.effect(() => {
@@ -83,9 +88,9 @@
                                         <div>
                                             <label class="block mb-1 font-semibold text-secondary">Choose Your Title *</label>
                                             <div class="min-h-[18px] mb-1">
-                                                <span x-show="errors.title" x-text="errors.title" class="text-success text-xs"></span>
+                                                <span x-show="errors.title" x-text="errors.title" class="text-success text-xs "></span>
                                             </div>
-                                            <select class="form-input w-full" name="title"
+                                            <select class="form-input w-full border-none input-bg" name="title"
                                                 @change="form.title = $event.target.value;validateField('title')"
                                                 @blur="validateField('title')">
                                                 <option value="">Title</option>
@@ -111,8 +116,8 @@
                                             <div class="min-h-[18px] mb-1">
                                                 <span x-show="errors.first_name" x-text="errors.first_name" class="text-success text-xs"></span>
                                             </div>
-                                            <input type="text" name="first_name" placeholder="First Name"
-                                                class="form-input w-full" @input="form.first_name = $event.target.value"
+                                            <input type="text" name="first_name" placeholder="First Name" 
+                                                class="form-input w-full input-bg border-none" @input="form.first_name = $event.target.value"
                                                 @input.debounce.500ms="validateField('first_name')"
                                                 @blur="validateField('first_name')" />
                                         </div>
@@ -133,7 +138,7 @@
                                                 <span x-show="errors.last_name" x-text="errors.last_name" class="text-success text-xs"></span>
                                             </div>
                                             <input type="text" name="last_name" placeholder="Last Name"
-                                                class="form-input w-full" @input="form.last_name = $event.target.value"
+                                                class="form-input w-full border-none input-bg" @input="form.last_name = $event.target.value"
                                                 @input.debounce.500ms="validateField('last_name')"
                                                 @blur="validateField('last_name')" />
                                         </div>
@@ -146,7 +151,7 @@
                                                 <span x-show="errors.email" x-text="errors.email" class="text-success text-xs"></span>
                                             </div>
                                             <input type="email" name="email" placeholder="Ex: jackson@gmail.com"
-                                                class="form-input w-full" @input="form.email = $event.target.value"
+                                                class="form-input w-full border-none input-bg" @input="form.email = $event.target.value"
                                                 @input.debounce.500ms="validateField('email')"
                                                 @blur="validateField('email')" />
                                         </div>
@@ -167,7 +172,7 @@
                                                 <span x-show="errors.phone" x-text="errors.phone" class="text-success text-xs"></span>
                                             </div>
                                             <input type="number" name="phone" placeholder="1 646 555 2671"
-                                                class="form-input w-full" @input="form.phone = $event.target.value"
+                                                class="form-input w-full border-none input-bg" @input="form.phone = $event.target.value"
                                                 @input.debounce.500ms="validateField('phone')"
                                                 @blur="validateField('phone')" />
                                         </div>
@@ -188,7 +193,7 @@
                                                 <span x-show="errors.passport_no" x-text="errors.passport_no" class="text-success text-xs"></span>
                                             </div>
                                             <input type="number" name="passport-no" placeholder="2671"
-                                                class="form-input w-full" @input="form.passport_no = $event.target.value"
+                                                class="form-input w-full border-none input-bg" @input="form.passport_no = $event.target.value"
                                                 @input.debounce.500ms="validateField('passport_no')"
                                                 @blur="validateField('passport_no')" />
                                         </div>
@@ -204,7 +209,7 @@
                                                 <span x-show="errors.visa_interview_date" x-text="errors.visa_interview_date" class="text-success text-xs mb-1 block"></span>
                                         
                                                 <!-- Input Field -->
-                                                <input name="visa_interview_date" type="date" class="form-input w-full"
+                                                <input name="visa_interview_date" type="date" class="form-input w-full border-none input-bg"
                                                     @input="form.visa_interview_date = $event.target.value"
                                                     @input.debounce.500ms="validateField('visa_interview_date')"
                                                     @blur="validateField('visa_interview_date')" />
@@ -234,7 +239,7 @@
                                                 <span x-show="errors.future_delivery_date" x-text="errors.future_delivery_date" class="text-success text-xs mb-1 block"></span>
                                         
                                                 <!-- Input Field -->
-                                                <input name="future_delivery_date" type="date" class="form-input w-full"
+                                                <input name="future_delivery_date" type="date" class="form-input w-full border-none input-bg"
                                                     @input="form.future_delivery_date = $event.target.value"
                                                     @input.debounce.500ms="validateField('future_delivery_date')"
                                                     @blur="validateField('future_delivery_date')" />
@@ -269,7 +274,7 @@
                                                 Did you get visa interview date? *
                                             </label>
                                             <select name="interview_documents" x-model="interview_documents"
-                                                class="form-input w-full"
+                                                class="form-input w-full border-none input-bg"
                                                 @change="form.interview_documents = $event.target.value; validateField('interview_documents')"
                                                 @blur="validateField('interview_documents')">
 
@@ -289,7 +294,7 @@
                                                     class="block mb-1 font-quicksand font-medium text-sm text-tealDeep mb-2">
                                                     Your visa interview date? *
                                                 </label>
-                                                <input name="visa_interview_date" type="date" class="form-input w-full"
+                                                <input name="visa_interview_date" type="date" class="form-input w-full border-none input-bg"
                                                     @input="form.visa_interview_date = $event.target.value"
                                                     @input.debounce.500ms="validateField('visa_interview_date')"
                                                     @blur="validateField('visa_interview_date')" />
@@ -319,7 +324,7 @@
                                                 Select document delivery date?*
                                             </label>
                                             <select name="interview_documents" x-model="interview_documents"
-                                                class="form-input w-full"
+                                                class="form-input w-full border-none input-bg"
                                                 @change="form.interview_documents = $event.target.value; validateField('interview_documents')"
                                                 @blur="validateField('interview_documents')">
 
@@ -408,7 +413,7 @@
                                             <p class="text-xs text-[#838083] mb-2">
                                                 This is the flight reservation cost only
                                             </p>
-                                            <select name="num_of_travelers" x-model="num_of_travelers" class="form-input w-full"
+                                            <select name="num_of_travelers" x-model="num_of_travelers" class="form-input w-full border-none input-bg"
                                                 @change="updateTravelers()">
                                                 <option value="1">1 Traveler $20 USD</option>
                                                 <option value="2">2 Travelers $35 USD (15% OFF)</option>
@@ -430,7 +435,7 @@
                                                 <div class="min-h-[18px] mb-1">
                                                     <span x-show="errors.travelers[idx]?.title" x-text="errors.travelers[idx]?.title" class="text-success text-xs"></span>
                                                 </div>
-                                                <select class="form-input w-full" :name="'traveler_title_' + idx" x-model="traveler.title"
+                                                <select class="form-input w-full border-none input-bg" :name="'traveler_title_' + idx" x-model="traveler.title"
                                                     @blur="validateTraveler(idx, 'title')">
                                                     <option value="">Title</option>
                                                     <option value="Mr">Mr.</option>
@@ -448,7 +453,7 @@
                                                     <span x-show="errors.travelers[idx]?.first_name" x-text="errors.travelers[idx]?.first_name" class="text-success text-xs"></span>
                                                 </div>
                                                 <input type="text" :name="'traveler_first_name_' + idx" placeholder="First Name"
-                                                    class="form-input w-full" x-model="traveler.first_name"
+                                                    class="form-input w-full border-none input-bg" x-model="traveler.first_name"
                                                     @blur="validateTraveler(idx, 'first_name')" />
                                             </div>
                                             <!-- Last Name -->
@@ -460,7 +465,7 @@
                                                     <span x-show="errors.travelers[idx]?.last_name" x-text="errors.travelers[idx]?.last_name" class="text-success text-xs"></span>
                                                 </div>
                                                 <input type="text" :name="'traveler_last_name_' + idx" placeholder="Last Name"
-                                                    class="form-input w-full" x-model="traveler.last_name"
+                                                    class="form-input w-full border-none input-bg" x-model="traveler.last_name"
                                                     @blur="validateTraveler(idx, 'last_name')" />
                                             </div>
                                         </div>
@@ -474,7 +479,7 @@
                                             <p class="text-xs text-[#838083] mb-2">
                                                 This is the flight reservation cost only
                                             </p>
-                                            <select name="num_of_flights" x-model="num_of_flights" class="form-input w-full"
+                                            <select name="num_of_flights" x-model="num_of_flights" class="form-input w-full border-none input-bg"
                                                 @change="updateFlights()">
                                                 <option value="1">1 Flight</option>
                                                 <option value="2">2 Flights</option>
@@ -497,7 +502,7 @@
                                             <span x-show="errors.flights[idx]" x-text="errors.flights[idx]" class="text-success text-xs min-h-[18px] block mb-1"></span>
                                             <input type="text"
                                                 :placeholder="'Example: Flight ' + (idx+1) + ' Departure From New York (10 May 2025) to Paris, Returning (20 May 2025) From Paris to New York.'"
-                                                class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                                class="form-input w-full border-none input-bg  px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                                 :name="'flight_' + (idx+1)" x-model="flights[idx]"
                                                 @blur="validateFlight(idx)" />
                                         </div>
@@ -522,7 +527,7 @@
                                         <div class="mt-3">
                                             <input type="text"
                                                 placeholder="Example: I want departure at 10 Oct and need arrival next day but not before."
-                                                class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                                class="form-input w-full  border-none input-bg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                                 name="arrival_instruction" />
                                         </div>
                                         <p class="mt-3 text-secondary text-[16px] font-[600]">
@@ -534,7 +539,7 @@
                                         <div class="mt-3">
                                             <input type="text"
                                                 placeholder="Example: Please avoid UK and US stops/layovers because i don't have their transit visas."
-                                                class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                                class="form-input w-full border-none input-bg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                                 name="layover_instruction" />
                                         </div>
                                         <p class="mt-3 text-secondary text-[16px] font-[600]">
@@ -543,7 +548,7 @@
                                         <div class="mt-3">
                                             <textarea rows="3" type="text"
                                                 placeholder="Write any extra details or instructions like if you have any preferred airline"
-                                                class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                                class="form-input w-full border-none input-bg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                                 name="extra_instruction"></textarea>
                                         </div>
                                     </div>
@@ -589,7 +594,7 @@
                                                         This is the flight reservation cost only
                                                     </p>
                                                     <select name="no_of_flights" x-model="no_of_flights"
-                                                        class="form-input w-full"
+                                                        class="form-input w-full border-none input-bg"
                                                         @change="form.no_of_flights = $event.target.value; validateField('no_of_flights')"
                                                         @blur="validateField('no_of_flights')">
 
@@ -612,7 +617,7 @@
                                                 <div>
                                                     <label class="block mb-1 font-semibold text-secondary">Choose 2nd Title
                                                         *</label>
-                                                    <select class="form-input w-full" name="title"
+                                                    <select class="form-input w-full border-none input-bg" name="title"
                                                         @change="form.title = $event.target.value;validateField('title')"
                                                         @blur="validateField('title')">
                                                         <option value="">Title</option>
@@ -639,7 +644,7 @@
                                                         </div>
                                                     </label>
                                                     <input type="text" name="first_name" placeholder="First Name"
-                                                        class="form-input w-full" @input="form.first_name = $event.target.value"
+                                                        class="form-input w-full border-none input-bg" @input="form.first_name = $event.target.value"
                                                         @input.debounce.500ms="validateField('first_name')"
                                                         @blur="validateField('first_name')" />
                                                     <span x-show="errors.first_name" x-text="errors.first_name"
@@ -660,7 +665,7 @@
                                                         </div>
                                                     </label>
                                                     <input type="text" name="last_name" placeholder="Last Name"
-                                                        class="form-input w-full" @input="form.last_name = $event.target.value"
+                                                        class="form-input w-full border-none input-bg" @input="form.last_name = $event.target.value"
                                                         @input.debounce.500ms="validateField('last_name')"
                                                         @blur="validateField('last_name')" />
                                                     <span x-show="errors.last_name" x-text="errors.last_name"
@@ -671,7 +676,7 @@
                                                 <div>
                                                     <label class="block mb-1 font-semibold text-secondary">Choose 3rd Title
                                                         *</label>
-                                                    <select class="form-input w-full" name="title"
+                                                    <select class="form-input w-full border-none input-bg" name="title"
                                                         @change="form.title = $event.target.value;validateField('title')"
                                                         @blur="validateField('title')">
                                                         <option value="">Title</option>
@@ -698,7 +703,7 @@
                                                         </div>
                                                     </label>
                                                     <input type="text" name="3rd_first_name" placeholder="First Name"
-                                                        class="form-input w-full" @input="form.first_name = $event.target.value"
+                                                        class="form-input w-full border-none input-bg" @input="form.first_name = $event.target.value"
                                                         @input.debounce.500ms="validateField('3rd_first_name')"
                                                         @blur="validateField('3rd_first_name')" />
                                                     <span x-show="errors.3rd_first_name" x-text="errors.3rd_first_name"
@@ -717,7 +722,7 @@
                                                         </div>
                                                     </label>
                                                     <input type="text" name="last_name" placeholder="Last Name"
-                                                        class="form-input w-full" @input="form.last_name = $event.target.value"
+                                                        class="form-input w-full border-none input-bg" @input="form.last_name = $event.target.value"
                                                         @input.debounce.500ms="validateField('last_name')"
                                                         @blur="validateField('last_name')" />
                                                     <span x-show="errors.last_name" x-text="errors.last_name"
@@ -742,7 +747,7 @@
                                                         This is the flight reservation cost only
                                                     </p>
                                                     <select name="no_of_flights" x-model="no_of_flights"
-                                                        class="form-input w-full"
+                                                        class="form-input w-full border-none input-bg"
                                                         @change="form.no_of_flights = $event.target.value; validateField('no_of_flights')"
                                                         @blur="validateField('no_of_flights')">
 
@@ -768,7 +773,7 @@
                                                 <div class="mt-3">
                                                     <textarea rows="3" type="text"
                                                         placeholder="City Paris - (Check in 11 May 2025 and Check out 15 May 2025"
-                                                        class="form-input w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
+                                                        class="form-input w-full border-none input-bg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-sm placeholder:text-gray-500"
                                                         name="flight-1"></textarea>
                                                 </div>
                                             </div>
@@ -816,7 +821,7 @@
                                                 This is the hotel bookings cost only
                                             </p>
                                             <select name="no_of_flights" x-model="no_of_flights"
-                                                class="form-input w-full"
+                                                class="form-input w-full border-none input-bg"
                                                 @change="form.no_of_flights = $event.target.value; validateField('no_of_flights')"
                                                 @blur="validateField('no_of_flights')">
 
@@ -860,7 +865,7 @@
                                                 Select no of travelers for travel insurance
                                             </p>
                                             <select name="no_of_flights" x-model="no_of_flights"
-                                                class="form-input w-full"
+                                                class="form-input w-ful border-none input-bgl"
                                                 @change="form.no_of_flights = $event.target.value; validateField('no_of_flights')"
                                                 @blur="validateField('no_of_flights')">
 
@@ -883,7 +888,7 @@
                                                 Where are you traveling From?*
                                             </label>
                                             <input type="text" name="travelling_from" x-model="form.travelling_from"
-                                                @blur="validateField('travelling_from')" class="form-input w-full"
+                                                @blur="validateField('travelling_from')" class="form-input w-full border-none input-bg"
                                                 placeholder="Enter departure city" />
                                             <span x-show="errors.travelling_from" x-text="errors.travelling_from"
                                                 class="text-success text-xs mt-1"></span>
@@ -895,7 +900,7 @@
                                                 Where are you traveling To?*
                                             </label>
                                             <input type="text" name="travelling_to" x-model="form.travelling_to"
-                                                @blur="validateField('travelling_to')" class="form-input w-full"
+                                                @blur="validateField('travelling_to')" class="form-input w-full border-none input-bg"
                                                 placeholder="Enter destination city" />
                                             <span x-show="errors.travelling_to" x-text="errors.travelling_to"
                                                 class="text-success text-xs mt-1"></span>
@@ -917,7 +922,7 @@
                                                 </div>
                                             </label>
                                             <input type="date" name="end_date" placeholder="end_date"
-                                                class="form-input w-full" @input="form.first_name = $event.target.value"
+                                                class="form-input w-full border-none input-bg" @input="form.first_name = $event.target.value"
                                                 @input.debounce.500ms="validateField('first_name')"
                                                 @blur="validateField('first_name')" />
                                             <span x-show="errors.first_name" x-text="errors.first_name"
@@ -936,7 +941,7 @@
                                                 </div>
                                             </label>
                                             <input type="date" name="end_date" placeholder="end_date"
-                                                class="form-input w-full" @input="form.first_name = $event.target.value"
+                                                class="form-input w-full border-none input-bg" @input="form.first_name = $event.target.value"
                                                 @input.debounce.500ms="validateField('first_name')"
                                                 @blur="validateField('first_name')" />
                                             <span x-show="errors.first_name" x-text="errors.first_name"
@@ -955,7 +960,7 @@
                                                 </div>
                                             </label>
                                             <input type="text" name="last_name" placeholder="Days"
-                                                class="form-input w-full" @input="form.last_name = $event.target.value"
+                                                class="form-input w-full  border-none input-bg" @input="form.last_name = $event.target.value"
                                                 @input.debounce.500ms="validateField('last_name')"
                                                 @blur="validateField('last_name')" />
                                             <span x-show="errors.last_name" x-text="errors.last_name"
@@ -998,7 +1003,7 @@
                                                 Traveler 1 First Name? *
                                             </label>
                                             <input type="text" name="traveler_1_first_name"
-                                                x-model="form.traveler_1_first_name" class="form-input w-full"
+                                                x-model="form.traveler_1_first_name" class="form-input w-full border-none input-bg"
                                                 placeholder="Enter first name"
                                                 @blur="validateField('traveler_1_first_name')" />
 
@@ -1011,7 +1016,7 @@
                                                 class="block mb-1 font-quicksand font-medium text-sm text-tealDeep mb-2">
                                                 Traveler 1 Last Name? *
                                             </label>
-                                            <input type="text" name="traveler_1_last_name" class="form-input w-full"
+                                            <input type="text" name="traveler_1_last_name" class="form-input w-full border-none input-bg"
                                                 placeholder="Enter last name" x-model="form.traveler_1_last_name"
                                                 @input.debounce.500ms="validateField('traveler_1_last_name')"
                                                 @blur="validateField('traveler_1_last_name')" />
@@ -1029,7 +1034,7 @@
                                             <label class="block mb-1 font-quicksand font-medium text-dark">Are you a US
                                                 Citizen? *</label>
                                             <select name="us_citizen" x-model="form.us_citizen"
-                                                class="form-input w-full" @change="validateField('us_citizen')"
+                                                class="form-input w-full border-none input-bg" @change="validateField('us_citizen')"
                                                 @blur="validateField('us_citizen')">
                                                 <option value="" disabled selected>Select an option</option>
                                                 <option value="Yes">Yes</option>
@@ -1044,7 +1049,7 @@
                                             <label class="block mb-1 font-quicksand font-medium text-dark">Traveller Age
                                                 *</label>
                                             <select name="traveller_age" x-model="form.traveller_age"
-                                                class="form-input w-full" @change="validateField('traveller_age')"
+                                                class="form-input w-full border-none input-bg" @change="validateField('traveller_age')"
                                                 @blur="validateField('traveller_age')">
                                                 <option value="" disabled selected>Select age range</option>
                                                 <option value="18-21">18 - 21</option>
@@ -1061,7 +1066,7 @@
                                         <div class="col-span-12 sm:col-span-6 md:col-span-4">
                                             <label class="block mb-1 font-quicksand font-medium text-dark">Date of Birth
                                                 *</label>
-                                            <input type="date" name="date_of_birth" class="form-input w-full"
+                                            <input type="date" name="date_of_birth" class="form-input w-full border-none input-bg"
                                                 x-model="form.date_of_birth"
                                                 @input.debounce.500ms="validateField('date_of_birth')"
                                                 @blur="validateField('date_of_birth')" />
@@ -1073,7 +1078,7 @@
                                         <div class="col-span-12 sm:col-span-6 md:col-span-4">
                                             <label class="block mb-1 font-quicksand font-medium text-dark">Choose Your
                                                 Title *</label>
-                                            <select name="title" x-model="form.title" class="form-input w-full"
+                                            <select name="title" x-model="form.title" class="form-input w-full border-none input-bg"
                                                 @change="validateField('title')" @blur="validateField('title')">
                                                 <option value="" disabled selected>Select your title</option>
                                                 <option value="Mr.">Mr.</option>
@@ -1088,7 +1093,7 @@
                                             <label class="block mb-1 font-quicksand font-medium text-dark">
                                                 Country of Citizenship? *
                                             </label>
-                                            <input type="text" name="citizenship_country" class="form-input w-full"
+                                            <input type="text" name="citizenship_country" class="form-input w-full border-none input-bg"
                                                 x-model="form.citizenship_country" placeholder="Enter country"
                                                 @input.debounce.500ms="validateField('citizenship_country')"
                                                 @blur="validateField('citizenship_country')" />
@@ -1104,7 +1109,7 @@
                                                 Passport Number
                                                 <span class="text-xs text-gray-500 ml-1">(Optional)</span>
                                             </label>
-                                            <input type="text" name="passport" class="form-input w-full"
+                                            <input type="text" name="passport" class="form-input w-full border-none input-bg"
                                                 x-model="form.passport" placeholder="Enter passport number (if any)"
                                                 @input.debounce.500ms="validateField('passport')"
                                                 @blur="validateField('passport')" />
@@ -1118,7 +1123,7 @@
                                         <div class="col-span-12 sm:col-span-6 md:col-span-4">
                                             <label class="block mb-1 font-quicksand font-medium text-dark">Home Country?
                                                 *</label>
-                                            <input type="text" name="home_country" class="form-input w-full"
+                                            <input type="text" name="home_country" class="form-input w-full border-none input-bg"
                                                 x-model="form.home_country" placeholder="Enter your home country"
                                                 @input.debounce.500ms="validateField('home_country')"
                                                 @blur="validateField('home_country')" />
@@ -1131,7 +1136,7 @@
                                         <div class="col-span-12 sm:col-span-6 md:col-span-4">
                                             <label class="block mb-1 font-quicksand font-medium text-dark">Home Country
                                                 Address? *</label>
-                                            <input type="text" name="home_country_address" class="form-input w-full"
+                                            <input type="text" name="home_country_address" class="form-input w-full  border-none input-bg"
                                                 x-model="form.home_country_address"
                                                 placeholder="Enter your home country address"
                                                 @input.debounce.500ms="validateField('home_country_address')"
@@ -1146,7 +1151,7 @@
                                         <div class="col-span-12 sm:col-span-6 md:col-span-4">
                                             <label class="block mb-1 font-quicksand font-medium text-dark">Home Country
                                                 State? *</label>
-                                            <input type="text" name="home_country_state" class="form-input w-full"
+                                            <input type="text" name="home_country_state" class="form-input w-full border-none input-bg"
                                                 x-model="form.home_country_state" placeholder="Enter your state"
                                                 @input.debounce.500ms="validateField('home_country_state')"
                                                 @blur="validateField('home_country_state')" />
@@ -1160,7 +1165,7 @@
                                         <div class="col-span-12 sm:col-span-6 md:col-span-4">
                                             <label class="block mb-1 font-quicksand font-medium text-dark">Home Country
                                                 City? *</label>
-                                            <input type="text" name="home_country_city" class="form-input w-full"
+                                            <input type="text" name="home_country_city" class="form-input w-full border-none input-bg"
                                                 x-model="form.home_country_city" placeholder="Enter your city"
                                                 @input.debounce.500ms="validateField('home_country_city')"
                                                 @blur="validateField('home_country_city')" />
@@ -1173,7 +1178,7 @@
                                         <div class="col-span-12 sm:col-span-6 md:col-span-4">
                                             <label class="block mb-1 font-quicksand font-medium text-dark">Home Country
                                                 Postal Code? *</label>
-                                            <input type="text" name="home_postal_code" class="form-input w-full"
+                                            <input type="text" name="home_postal_code" class="form-input w-full border-none input-bg"
                                                 x-model="form.home_postal_code" placeholder="Enter postal code"
                                                 @input.debounce.500ms="validateField('home_postal_code')"
                                                 @blur="validateField('home_postal_code')" />
@@ -1186,7 +1191,7 @@
                                         <div class="col-span-12 sm:col-span-6 md:col-span-4">
                                             <label class="block mb-1 font-quicksand font-medium text-dark">Home Country
                                                 Phone no.? *</label>
-                                            <input type="tel" name="home_country_phone" class="form-input w-full"
+                                            <input type="tel" name="home_country_phone" class="form-input w-full border-none input-bg"
                                                 x-model="form.home_country_phone" placeholder="+1 (302) 219-4576"
                                                 @input.debounce.500ms="validateField('home_country_phone')"
                                                 @blur="validateField('home_country_phone')" />
@@ -1212,7 +1217,7 @@
                                                     yourself)</span> *
                                             </label>
                                             <input type="text" name="beneficiary_name" x-model="form.beneficiary_name"
-                                                class="form-input w-full" placeholder="Enter beneficiary name"
+                                                class="form-input w-full border-none input-bg" placeholder="Enter beneficiary name"
                                                 @blur="validateField('beneficiary_name')" />
 
                                             <span x-show="errors.beneficiary_name" x-text="errors.beneficiary_name"
@@ -1225,7 +1230,7 @@
                                                 class="block mb-1 font-quicksand font-medium text-sm text-tealDeep mb-2">
                                                 Beneficiary Relationship? *
                                             </label>
-                                            <input type="text" name="beneficiary_relationship" class="form-input w-full"
+                                            <input type="text" name="beneficiary_relationship" class="form-input w-full border-none input-bg"
                                                 placeholder="Enter relationship (e.g. spouse, sibling)"
                                                 x-model="form.beneficiary_relationship"
                                                 @input.debounce.500ms="validateField('beneficiary_relationship')"
@@ -1276,7 +1281,7 @@
                                             <label class="block mb-1 font-quicksand font-medium text-dark">No Of Cities
                                                 *</label>
                                             <select name="no_of_cities" x-model="form.no_of_cities"
-                                                class="form-input w-full" @change="validateField('no_of_cities')"
+                                                class="form-input w-full border-none input-bg" @change="validateField('no_of_cities')"
                                                 @blur="validateField('no_of_cities')">
                                                 <option value="" disabled selected>Select an option</option>
                                                 <option value="1">1</option>
@@ -1303,7 +1308,7 @@
                                                 Select Travel Guide 1*
                                             </label>
                                             <select name="travel_guide_1" x-model="form.travel_guide_1"
-                                                class="form-input w-full" @blur="validateField('travel_guide_1')">
+                                                class="form-input w-full border-none input-bg" @blur="validateField('travel_guide_1')">
                                                 <option value="" disabled selected>Select a guide</option>
                                                 <option value="John Doe">John Doe</option>
                                                 <option value="Sarah Khan">Sarah Khan</option>
@@ -1319,7 +1324,7 @@
                                                 class="block mb-1 font-quicksand font-medium text-sm text-tealDeep mb-2">
                                                 Select Travel Guide 2*
                                             </label>
-                                            <input type="text" name="travel_guide_2" class="form-input w-full"
+                                            <input type="text" name="travel_guide_2" class="form-input w-full border-none input-bg"
                                                 placeholder="Enter second travel guide name"
                                                 x-model="form.travel_guide_2"
                                                 @input.debounce.500ms="validateField('travel_guide_2')"
@@ -1361,7 +1366,7 @@
                                                 class="block mb-1 font-quicksand text-[16px] font-medium text-tealDeep mb-2">
                                                 For which visa purposes do you need an interview questionnaire?
                                             </label>
-                                            <select name="visa_purpose" class="form-input w-full">
+                                            <select name="visa_purpose" class="form-input w-full border-none input-bg">
                                                 <option value="" disabled selected>Select a purpose</option>
                                                 <option value="Visitor_Visa">Visitor Visa</option>
                                                 <option value="Student_Visa">Student Visa</option>
@@ -1400,7 +1405,7 @@
                                                 class="block mb-1 font-quicksand text-sm font-medium text-tealDeep mb-2">
                                                 For which visa purpose is this urgent reservation? *
                                             </label>
-                                            <select name="visa_purpose" class="form-input w-full">
+                                            <select name="visa_purpose" class="form-input w-full border-none input-bg ">
                                                 <option value="" disabled selected>Select a purpose</option>
                                                 <option value="Visitor_Visa">Visitor Visa</option>
                                                 <option value="Student_Visa">Student Visa</option>

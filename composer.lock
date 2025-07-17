@@ -7,7 +7,7 @@
     "content-hash": "9b752f644dcb0c3b848f0e1c999e5732",
     "packages": [
         {
-            "name": "akaunting/laravel-setting",
+            "name": "akaunting/laravel-setting"
             "version": "1.2.9",
             "source": {
                 "type": "git",

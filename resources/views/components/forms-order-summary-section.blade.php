@@ -27,7 +27,7 @@
 
             <!-- Input field -->
             <input type="text" placeholder="Enter code here"
-                class="w-full pr-[120px] border border-gray-300 rounded px-3 py-2 placeholder:text-[#86898B] text-sm" />
+                class="w-full pr-[120px] border-none input-bg rounded px-3 py-2 placeholder:text-[#86898B] text-sm" />
 
             <!-- Button inside input -->
             <button
@@ -99,15 +99,27 @@
 
         </span>
 
-        <div class="mt-4 flex flex-row flex-wrap justify-evenly md:justify-between   md:gap-3 items-center">
+        <div class="mt-4 flex flex-row flex-wrap    items-left gap-1">
             <img src="{{asset('assets/visa.svg')}}" alt="visa" class="w-[65px] h-[54px]">
-            <img src="{{asset('assets/master.svg')}}" alt="visa" class="w-[65px] h-[54px]">
+            <img src="{{asset('assets/card-group.svg')}}" alt="visa" class="w-[65px] h-[54px]">
             <img src="{{asset('assets/american-express.svg')}}" alt="visa" class="w-[65px] h-[54px]">
             <img src="{{asset('assets/discover.svg')}}" alt="visa" class="w-[65px] h-[54px]">
-            <img src="{{asset('assets/jcb.svg')}}" alt="visa" class="w-[65px] h-[54px]">
-            <img src="{{asset('assets/dinner-club.svg')}}" alt="visa" class="w-[65px] h-[54px]">
-            <img src="{{asset('assets/mastero.svg')}}" alt="visa" class="w-[65px] h-[54px]">
-            <img src="{{asset('assets/union-pay.svg')}}" alt="visa" class="w-[65px] h-[34px]">
-            <img src="{{asset('assets/wechat.svg')}}" alt="visa" class="w-[65px] h-[34px]">
+            <img src="{{asset('assets/JCB.svg')}}" alt="visa" class="w-[65px] h-[54px]">
+           
+            
+            <img src="{{asset('assets/union-pay.svg')}}" alt="visa" class="w-[65px] h-[54px]">
+             <img src="{{asset('assets/Diner-Club.svg')}}" alt="visa" class="w-[65px] h-[54px]">
+            <img src="{{asset('assets/wechat.svg')}}" alt="visa" class="w-[65px] h-[54px]">
+            <img src="{{asset('assets/klarna.svg')}}" alt="visa" class="w-[65px] h-[54px]">
+        </div>
+
+        <div class="space-y-8 mt-8">
+        <p class="text-gray-400">By clicking on ”Slide to Pay” below, you agree to our <span class="underline text-black">terms & conditions </span>and <span class="underline text-black">privacy policy.</span></p>
+         <button
+              class="flex items-center justify-center w-full gap-2 px-4 py-2 rounded-[5px] bg-[#F4BD0F] text-primary font-[Quicksand] font-bold text-[16px]"
+              style='box-shadow: -5px 5px 0px 0px #00000099' 
+            >
+              pay your bill »
+            </button>
         </div>
     </div>

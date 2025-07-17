@@ -20,46 +20,54 @@
         </div>
     </div>
 
-  <!-- Dynamic Traveler Fields -->
-<template x-for="(traveler, idx) in form.travelers" :key="idx">
-    <div x-show="idx > 0" class="grid grid-cols-1 sm:grid-cols-3 gap-x-4 gap-y-6 mt-6 text-sm">
-        <!-- Title -->
-        <div>
-            <label class="block mb-1 font-semibold text-secondary" x-text="getOrdinal(idx) + ' Title *'"></label>
-            <span x-show="errors.travelers[idx]?.title" x-text="errors.travelers[idx]?.title"
-                class="text-success text-xs min-h-[18px] block mb-1"></span>
-            <select class="form-input w-full" x-model="traveler.title" @blur="validateTraveler(idx, 'title')">
-                <option value="">Title</option>
-                <option value="Mr">Mr.</option>
-                <option value="Ms">Ms.</option>
-                <option value="Mrs">Mrs.</option>
-                <option value="Master">Master.</option>
-            </select>
-        </div>
+    <!-- Dynamic Traveler Fields -->
+    <template x-for="(traveler, idx) in form.travelers" :key="idx">
+        <div x-show="idx > 0" class="grid grid-cols-1 sm:grid-cols-3 gap-x-4 gap-y-6 mt-6 text-sm">
+            <!-- Title -->
+            <div>
+                <label class="block mb-1 font-semibold text-secondary" x-text="getOrdinal(idx) + ' Title *'"></label>
+                <div class="min-h-[18px]">
+                  <span x-show="errors.travelers[idx]?.title" x-text="errors.travelers[idx]?.title"
+                      class="text-success text-xs block mb-1"></span>
+                </div>
+                <select class="form-input w-full" x-model="traveler.title" 
+                        @blur="validateTraveler(idx, 'title')" 
+                        @change="validateTraveler(idx, 'title')">
+                    <option value="">Title</option>
+                    <option value="Mr">Mr.</option>
+                    <option value="Ms">Ms.</option>
+                    <option value="Mrs">Mrs.</option>
+                    <option value="Master">Master.</option>
+                </select>
+            </div>
 
-        <!-- First Name -->
-        <div>
-            <label class="block mb-1 font-quicksand font-medium text-tealDeep" 
-                   x-text="getOrdinal(idx) + ' First Name? *'"></label>
-            <span x-show="errors.travelers[idx]?.first_name" x-text="errors.travelers[idx]?.first_name"
-                class="text-success text-xs min-h-[18px] block mb-1"></span>
-            <input type="text" placeholder="First Name" class="form-input w-full"
-                x-model="traveler.first_name" @input="restrictInput($event, 'letters')"
-                @blur="validateTraveler(idx, 'first_name')" />
-        </div>
+            <!-- First Name -->
+            <div>
+                <label class="block mb-1 font-quicksand font-medium text-tealDeep" 
+                       x-text="getOrdinal(idx) + ' First Name? *'"></label>
+                <div class="min-h-[18px]">
+                  <span x-show="errors.travelers[idx]?.first_name" x-text="errors.travelers[idx]?.first_name"
+                      class="text-success text-xs block mb-1"></span>
+                </div>
+                <input type="text" placeholder="First Name" class="form-input w-full"
+                    x-model="traveler.first_name" @input="restrictInput($event, 'letters')"
+                    @blur="validateTraveler(idx, 'first_name')" />
+            </div>
 
-        <!-- Last Name -->
-        <div>
-            <label class="block mb-1 font-quicksand font-medium text-tealDeep" 
-                   x-text="getOrdinal(idx) + ' Last Name? *'"></label>
-            <span x-show="errors.travelers[idx]?.last_name" x-text="errors.travelers[idx]?.last_name"
-                class="text-success text-xs min-h-[18px] block mb-1"></span>
-            <input type="text" placeholder="Last Name" class="form-input w-full"
-                x-model="traveler.last_name" @input="restrictInput($event, 'letters')"
-                @blur="validateTraveler(idx, 'last_name')" />
+            <!-- Last Name -->
+            <div>
+                <label class="block mb-1 font-quicksand font-medium text-tealDeep" 
+                       x-text="getOrdinal(idx) + ' Last Name? *'"></label>
+                <div class="min-h-[18px]">
+                  <span x-show="errors.travelers[idx]?.last_name" x-text="errors.travelers[idx]?.last_name"
+                      class="text-success text-xs block mb-1"></span>
+                </div>
+                <input type="text" placeholder="Last Name" class="form-input w-full"
+                    x-model="traveler.last_name" @input="restrictInput($event, 'letters')"
+                    @blur="validateTraveler(idx, 'last_name')" />
+            </div>
         </div>
-    </div>
-</template>
+    </template>
 
     <!-- Flights Count -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-6 text-sm items-start">
@@ -103,7 +111,6 @@
             Add More Flights
         </button>
     </div>
-
     <!-- Additional Instructions -->
     <div class="mt-4">
         <p class="mt-3 text-secondary text-[16px] font-[600]">
@@ -158,11 +165,13 @@
                     flights: [],
                     num_of_travelers: '' // <-- add this
                 },
+                travelerCost: 20,
+                flightCost: 0,
+                totalPrice: 20,
                 init() {
                     this.updateTravelers();
                     this.updateFlights();
                 },
-
                 updateTravelers() {
                     const count = parseInt(this.form.num_of_travelers);
                     if (!count || count < 1) {
@@ -170,58 +179,147 @@
                     } else {
                         this.errors.num_of_travelers = '';
                     }
-                    this.form.travelers = Array.from({ length: count }, () => ({
-                        title: '',
-                        first_name: '',
-                        last_name: ''
-                    }));
-                    this.errors.travelers = Array(count).fill({});
+                    // Preserve existing data
+                    const current = this.form.travelers || [];
+                    if (current.length < count) {
+                        // Add new empty travelers as needed
+                        for (let i = current.length; i < count; i++) {
+                            current.push({ title: '', first_name: '', last_name: '' });
+                        }
+                    } else if (current.length > count) {
+                        // Trim the array if count decreased
+                        current.length = count;
+                    }
+                    this.form.travelers = current;
+                    // Adjust errors array as well
+                    const currentErrors = this.errors.travelers || [];
+                    if (currentErrors.length < count) {
+                        for (let i = currentErrors.length; i < count; i++) {
+                            currentErrors.push({});
+                        }
+                    } else if (currentErrors.length > count) {
+                        currentErrors.length = count;
+                    }
+                    this.errors.travelers = currentErrors;
+                    // Calculate traveler cost
+                    let tCost = 20;
+                    if (count === 2) tCost = 28;
+                    else if (count === 3) tCost = 42;
+                    else if (count === 4) tCost = 56;
+                    else if (count === 5) tCost = 70;
+                    else if (count === 6) tCost = 84;
+                    else if (count === 7) tCost = 98;
+                    else if (count === 8) tCost = 112;
+                    this.travelerCost = tCost;
+                    this.updateTotalPrice();
+                    this.emitSummary();
                 },
-
                 updateFlights() {
                     const count = parseInt(this.form.num_of_flights);
-                    this.form.flights = Array(count).fill('');
-                    this.errors.flights = Array(count).fill('');
+                    // Preserve existing data
+                    const current = this.form.flights || [];
+                    if (current.length < count) {
+                        for (let i = current.length; i < count; i++) {
+                            current.push('');
+                        }
+                    } else if (current.length > count) {
+                        current.length = count;
+                    }
+                    this.form.flights = current;
+                    // Adjust errors array as well
+                    const currentErrors = this.errors.flights || [];
+                    if (currentErrors.length < count) {
+                        for (let i = currentErrors.length; i < count; i++) {
+                            currentErrors.push('');
+                        }
+                    } else if (currentErrors.length > count) {
+                        currentErrors.length = count;
+                    }
+                    this.errors.flights = currentErrors;
+                    // Calculate flight cost - first 4 flights are free, $5 for each additional flight
+                    let fCost = 0;
+                    if (count > 4) {
+                        fCost = (count - 4) * 5; // Only charge for flights beyond the first 4
+                    }
+                    this.flightCost = fCost;
+                    this.updateTotalPrice();
+                    this.emitSummary();
                 },
-
+                updateTotalPrice() {
+                    const sum = (this.travelerCost || 0) + (this.flightCost || 0);
+                    this.totalPrice = sum < 20 ? 20 : sum;
+                    this.emitSummary();
+                },
                 validateTraveler(index, field) {
                     const value = this.form.travelers[index][field];
                     let error = '';
-
-                    if (!value) {
-                        error = `${field.replace('_', ' ')} is required`;
+                    const ordinal = this.getOrdinal(index);
+                    let fieldLabel = '';
+                    if (field === 'title') fieldLabel = 'Title';
+                    else if (field === 'first_name') fieldLabel = 'First Name';
+                    else if (field === 'last_name') fieldLabel = 'Last Name';
+                    if (!value || value.trim() === '') {
+                        error = `${ordinal} ${fieldLabel} is required`;
                     } else if (['first_name', 'last_name'].includes(field) && !/^[a-zA-Z\s]+$/.test(value)) {
                         error = 'Only letters and spaces allowed';
                     }
-
-                    this.$set(this.errors.travelers[index], field, error);
+                    // Ensure the error object exists
+                    if (!this.errors.travelers[index]) {
+                        this.errors.travelers[index] = {};
+                    }
+                    this.errors.travelers[index][field] = error;
                 },
-
+                validateAllTravelers() {
+                    this.form.travelers.forEach((traveler, index) => {
+                        // Skip validation for the first traveler (index 0)
+                        if (index > 0) {
+                            this.validateTraveler(index, 'title');
+                            this.validateTraveler(index, 'first_name');
+                            this.validateTraveler(index, 'last_name');
+                        }
+                    });
+                },
                 validateFlight(index) {
                     const value = this.form.flights[index];
-                    this.errors.flights[index] = !value.trim() ? 'Flight details are required' : '';
+                    this.errors.flights[index] = !value || !value.trim() ? 'Flight details are required' : '';
                 },
-
+                validateAllFlights() {
+                    this.form.flights.forEach((flight, index) => {
+                        this.validateFlight(index);
+                    });
+                },
+                validateAll() {
+                    this.validateAllTravelers();
+                    this.validateAllFlights();
+                },
                 restrictInput(event, type) {
                     let value = event.target.value;
                     if (type === 'letters') {
                         event.target.value = value.replace(/[^a-zA-Z\s]/g, '');
                     }
                 },
-
                 addFlight() {
                     if (this.form.flights.length < 8) {
                         this.form.flights.push('');
                         this.errors.flights.push('');
                         this.form.num_of_flights = this.form.flights.length;
+                        this.updateFlights(); // Ensure price and summary update
                     }
                 },
-
                 getOrdinal(index) {
                     const suffixes = ['1st', '2nd', '3rd'];
                     const number = index + 1;
                     const suffix = suffixes[number - 1] || number + 'th';
                     return suffix;
+                },
+                emitSummary() {
+                    this.$dispatch('update-order-summary', {
+                        num_of_travelers: this.form.num_of_travelers,
+                        travelerCost: this.travelerCost,
+                        num_of_flights: this.form.num_of_flights,
+                        flightCost: this.flightCost,
+                        totalPrice: this.totalPrice
+                    });
                 }
             }
         }

@@ -4,7 +4,7 @@ use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::name('website.')->controller(WebsiteController::class)->group(function () {
+Route::name('website.')->middleware('detect.device')->controller(WebsiteController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/flight-reservation', 'flightReservation')->name('flight');
     Route::get('/contact-us', 'contactUs')->name('contact');

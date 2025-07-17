@@ -8,7 +8,12 @@ class WebsiteController extends Controller
 {
     public function index()
     {
-        return view('pages.home');
+       
+         if (session('is_mobile')) {
+            return view('pages.mobile');
+        } else {
+            return view('pages.home');
+        }
     }
 
     public function contactUs()

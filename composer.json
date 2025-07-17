@@ -9,6 +9,7 @@
         "php": "^8.2",
         "akaunting/laravel-setting": "^1.2",
         "emotality/tawk-laravel": "^2.1",
+        "jenssegers/agent": "^2.6",
         "kwn/number-to-words": "^2.12",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",

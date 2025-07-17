@@ -85,15 +85,19 @@
                         <p class="text-secondary font-semibold text-[20px] mt-6">Do You Need Hotel Booking for each traveller?</p>
                         <div class="flex gap-6 mt-2">
                             <label class="flex items-center gap-1">
-                                <input type="radio" name="hotelBookingToggle" x-model="hotelBooking" value="yes" class="text-primary"> Yes
+                               <input type="radio" name="hotelBookingToggle" x-model="hotelBooking" value="yes"
+                                class="text-primary"
+                                @change="$dispatch('hotel-booking-toggle', { enabled: true })"> Yes
                             </label>
                             <label class="flex items-center gap-1">
-                                <input type="radio" name="hotelBookingToggle" x-model="hotelBooking" value="no" class="text-primary"> No
+                                <input type="radio" name="hotelBookingToggle" x-model="hotelBooking" value="no"
+                                    class="text-primary"
+                                    @change="$dispatch('hotel-booking-toggle', { enabled: false })"> No
                             </label>
                         </div>
                         <template x-if="hotelBooking === 'yes'">
                             <div>
-                                <x-hotel-booking />
+                                <x-hotel-booking x-bind:enabled="hotelBooking === 'yes'" />
                             </div>
                         </template>
                     </div>
@@ -130,19 +134,24 @@
                             <h2 class="text-[24px] text-white font-[500]">Travel Guide</h2>
                         </div>
                     </div>
+                   <!-- Travel Guide Section -->
                     <div class="p-4">
                         <p class="text-secondary font-semibold text-[16px] mt-6">Do You Need Travel Guides to create a compelling visa story?</p>
                         <div class="flex gap-6 mt-2">
                             <label class="flex items-center gap-1">
-                                <input type="radio" name="travelGuideToggle" x-model="travelGuide" value="yes" class="text-primary"> Yes
+                                <input type="radio" name="travelGuideToggle" x-model="travelGuide" value="yes" 
+                                    class="text-primary"
+                                    @change="$dispatch('travel-guide-toggle', { enabled: true })"> Yes
                             </label>
                             <label class="flex items-center gap-1">
-                                <input type="radio" name="travelGuideToggle" x-model="travelGuide" value="no" class="text-primary"> No
+                                <input type="radio" name="travelGuideToggle" x-model="travelGuide" value="no" 
+                                    class="text-primary"
+                                    @change="$dispatch('travel-guide-toggle', { enabled: false }); $refs.travelGuideComp && $refs.travelGuideComp.clearForm && $refs.travelGuideComp.clearForm();"> No
                             </label>
                         </div>
                         <template x-if="travelGuide === 'yes'">
                             <div>
-                                <x-travel-guide />
+                                <x-travel-guide x-ref="travelGuideComp" />
                             </div>
                         </template>
                     </div>
@@ -188,4 +197,5 @@
             </div>
         </div>
     </div>
+    
 </x-app-layout>

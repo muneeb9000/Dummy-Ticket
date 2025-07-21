@@ -4,7 +4,7 @@
 
 @layer utilities {
   .my-container {
-    @apply w-[80%] mx-auto;
+    @apply w-[90%] mx-auto;
   }
 
  .input_bg {

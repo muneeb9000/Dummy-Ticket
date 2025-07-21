@@ -13,6 +13,7 @@ Route::name('website.')->middleware('detect.device')->controller(WebsiteControll
     Route::get('/refund-policy', 'refundPolicy')->name('refund.policy');
     Route::get('/reviews', 'reviews')->name('reviews');
     Route::get('/terms-conditions', 'termsConditions')->name('terms.conditions');
+    
 });
 
 
